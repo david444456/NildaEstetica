@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e48f6ffa04b09440a9600e71880706c, type: 3}
+  m_Name: Slot2
+  m_EditorClassIdentifier: 
+  StatLevel:
+    costsToUnlockedSlot: 24
+    levelUnitUnlockedSlot: 1
+    costsToUpgradeLevel: 1
+    levelUnitUpgradeLevel: 1
+    countToUpgradeLevelExp: 030000000a000000
+    multiplicatorLevels:
+    - 3
+    - 5
+    timeToUpgradeLevel:
+    - 10
+    - 30
+    gameObjectsByLevel:
+    - {fileID: -2432090755550338912, guid: fe63f0b21e4e2d74aaf0e0f169b97707, type: 3}
+    - {fileID: -2432090755550338912, guid: 8305f81865a831a4cbdd3837ac58b33b, type: 3}
+  textInformation: Un salon de masajes ideal para vos perra
+  spriteBossSlot: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
