@@ -1,36 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
 
 namespace Est.CycleGoal
 {
-    public class ControlDailyGoalsView : MonoBehaviour
+    public class View : MonoBehaviour
     {
         [SerializeField] Image[] imageDataActualGoals;
         [SerializeField] Text[] textDataActualGoals;
-        [SerializeField] GameObject[] buttonsActualGoals;
-        [SerializeField] GameObject[] backGroundAllGoals;
+        [SerializeField] GameObject[] buttonsActualGoals = null;
+        [SerializeField] GameObject[] backGroundAllGoals = null;
 
-        ControlCycleGoals cycleGoals;
+        ViewControlCycleGoals cycleGoals;
         int m_lastIndex = 0;
 
         // Start is called before the first frame update
         void Start()
         {
-            cycleGoals = GetComponent<ControlCycleGoals>();
+            cycleGoals = GetComponent<ViewControlCycleGoals>();
         }
 
         public void UpdateDataGoals(DataGoal dataGoal, int index)
         {
             //data in slots goals
-            print(dataGoal.GetTextInfo() + " " + dataGoal.GetSpriteInfo() + " " + index);
             textDataActualGoals[index].text = dataGoal.GetTextInfo();
             imageDataActualGoals[index].sprite = dataGoal.GetSpriteInfo();
         }
 
-        public void CompleteGoalChangeUI(int index) {
+        public void CompleteGoalChangeUI(int index)
+        {
             //complete in ui, complete button
             m_lastIndex = index;
             buttonsActualGoals[index].SetActive(true);
@@ -40,7 +37,8 @@ namespace Est.CycleGoal
 
         public void DesactiveAllGoalSlot(int index) => backGroundAllGoals[index].SetActive(false);
 
-        public void NewGoalInActualGoals(DataGoal dataGoal, int lastIndex) {
+        public void NewGoalInActualGoals(DataGoal dataGoal, int lastIndex)
+        {
             print("Desactive button" + lastIndex);
 
             //change data in new data goal

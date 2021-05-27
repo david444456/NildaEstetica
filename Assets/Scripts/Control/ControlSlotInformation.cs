@@ -39,7 +39,7 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
             }
 
         //cycle
-        ControlCycleGoals.Instance.SubscriptionToEvent(ref NewPassLevelSlot);
+        ViewControlCycleGoals.Instance.SubscriptionToEvent(ref NewPassLevelSlot);
     }
 
     private void OnDisable()

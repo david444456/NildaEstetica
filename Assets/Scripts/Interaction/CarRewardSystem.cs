@@ -19,7 +19,7 @@ namespace Est.Interact
 
             UIImageInfo.SetActive(false);
             IsUsed = true;
-            PlayerSession.Instance.ActiveMenuRewardCarPlayerSessionView();
+            MediatorMobile.Instance.ActiveMenuRewardCarPlayerSessionView();
         }
 
         private void OnEnable()

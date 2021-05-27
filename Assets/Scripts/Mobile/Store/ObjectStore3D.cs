@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using Est.Mobile.Save;
 using UnityEngine.Events;
 
-public class ObjectStore3D : MonoBehaviour
+public class ObjectStore3D : MonoBehaviour, ISaveable 
 {
     [SerializeField] EBuyNewItem buyNewItem;
 
@@ -25,9 +26,6 @@ public class ObjectStore3D : MonoBehaviour
         if (buyNewItem == null)
             buyNewItem = new EBuyNewItem();
 
-        //load
-        nameDataSave = Application.persistentDataPath + "/datos.dat";
-        LoadDataValueBool();
     }
 
     public ItemInfo3D[] GetObjectsItems() => gameObjectInStore;
@@ -53,34 +51,15 @@ public class ObjectStore3D : MonoBehaviour
         //buy
         arrayThatSaveWhoIsPurchased[index] = true;
         buyNewItem.Invoke(gameObjectInStore[index]);
-
-        //save
-        saveValueBoolItems_IfPurchased();
     }
 
-    private void saveValueBoolItems_IfPurchased()
+    public object CaptureState()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(nameDataSave);
-
-        bf.Serialize(file, arrayThatSaveWhoIsPurchased);
-        file.Close();
+        return arrayThatSaveWhoIsPurchased;
     }
 
-    private void LoadDataValueBool()
+    public void RestoreState(object state)
     {
-        if (File.Exists(nameDataSave))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(nameDataSave, FileMode.Open);
-
-            arrayThatSaveWhoIsPurchased = (bool[])bf.Deserialize(file);
-
-            file.Close();
-        }
-        else
-        {
-            print("No data");
-        }
+        arrayThatSaveWhoIsPurchased = (bool[])state;
     }
 }

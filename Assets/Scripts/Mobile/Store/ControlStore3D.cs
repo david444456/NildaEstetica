@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 //this script control activated and desactive store, and call method to activated objects
 [RequireComponent(typeof(ObjectStore3D))]
@@ -15,7 +16,7 @@ public class ControlStore3D : MonoBehaviour
     [SerializeField] bool isObjectSelect = true;
 
     [Header("UI")]
-    [SerializeField] Text textSelectOrPurchasedNewItem = null;
+    [SerializeField] TextMeshProUGUI textSelectOrPurchasedNewItem = null;
     [SerializeField] GameObject gameObjectSelectPurchasedNewItem = null;
 
     private ObjectStore3D ctrolObjectStore;
@@ -35,7 +36,7 @@ public class ControlStore3D : MonoBehaviour
         newMovement_VerifyIfObjectIsPurchased();
 
         //cycle goals
-        ControlCycleGoals.Instance.SubscriptionToEvent(ref NewPurchasedItem3D);
+        ViewControlCycleGoals.Instance.SubscriptionToEvent(ref NewPurchasedItem3D);
     }
 
     public void activeOrDesactiveStore(bool changeValueBool) {
@@ -90,7 +91,8 @@ public class ControlStore3D : MonoBehaviour
             if(isObjectSelect) IsActualSelectable();
         }
         else {
-            textSelectOrPurchasedNewItem.text = "BUY " + 
+
+            textSelectOrPurchasedNewItem.text = "<size=24><b>" + "Purchased X2" + "</b></size>"+ "\n " + "BUY FOR" +
                 ctrolObjectStore.GetObjectActualPosition(m_indexActualPositionInStore).dataItem.costItem  + " " +
                 buyItemInfo3D.GetStringUnitsWithIndex(ctrolObjectStore.GetObjectActualPosition(m_indexActualPositionInStore).dataItem.indexCostItem); //coins
         }

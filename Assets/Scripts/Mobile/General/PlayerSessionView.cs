@@ -1,32 +1,36 @@
-﻿using System.Collections;
+﻿using Est.Mobile.Save;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace Est.Mobile
 {
-    public class PlayerSessionView : MonoBehaviour
+    public class PlayerSessionView : MonoBehaviour, ISaveable, IPlayerSession
     {
-        //public static PlayerSessionView Instance { get; private set; }
+        PlayerSession playerSession;
 
-        [SerializeField] GameObject MenuRewardCar = null;
+        private DateTime dateQuit = DateTime.MaxValue;
 
-        /*private void Awake()
+        private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }*/
+            playerSession = new PlayerSession(dateQuit);
+        }
 
-        public void ActiveMenuRewardCar(float valueCoin) {
-            print("The value to reward's : " +valueCoin);
-            MenuRewardCar.SetActive(true);
+        public float GetTimeHour() => playerSession.GetTimeHour();
+
+        public float GetTimeMinute() => playerSession.GetTimeMinute();
+
+        public object CaptureState()
+        {
+            DateTime quitDateTime = DateTime.Now;
+            return quitDateTime;
+        }
+
+        public void RestoreState(object state)
+        {
+            dateQuit = (DateTime)state;
         }
     }
 }

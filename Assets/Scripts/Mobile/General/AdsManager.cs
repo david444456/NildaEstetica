@@ -7,18 +7,18 @@ using UnityEngine.Events;
 namespace Est.Mobile
 {
     //this control everything in mobile,( ads ),
-    public class MobileManager : MonoBehaviour
+    public class AdsManager : MonoBehaviour
     {
         public Action VideoIsComplete = delegate { };
 
         [SerializeField] int timeForSaveRecompenseHours = 24;
 
-        private PlayerSession playerSession;
+        private PlayerSessionView playerSession;
         private RewardTimeGeneration rewardTimeGeneration;
 
         void Start()
         {
-            playerSession = GetComponent<PlayerSession>();
+            playerSession = GetComponent<PlayerSessionView>();
             rewardTimeGeneration = GetComponent<RewardTimeGeneration>();
 
             //reward

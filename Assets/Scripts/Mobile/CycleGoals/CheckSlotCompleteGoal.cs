@@ -6,7 +6,7 @@ namespace Est.CycleGoal
 {
     public class CheckSlotCompleteGoal : CompleteCycleGoals
     {
-        [SerializeField] ControlSlotInformation slotInformation;
+        [SerializeField] ControlSlotInformation slotInformation = null;
 
         public override bool VerifyCompleteGoal<SlotDataGoal>(SlotDataGoal dateGoal)
         {

@@ -14,7 +14,7 @@ namespace Est.CycleGoal
         [SerializeField] private int m_levelUnitCoinReward = 0;
         [SerializeField] private TypeGoal m_typeGoalData;
         [TextArea][SerializeField] private string m_textInformationGoal = " ";
-        [SerializeField] private Sprite m_spriteInformationGoal;
+        [SerializeField] private Sprite m_spriteInformationGoal = null;
 
         public virtual int IndexItemStore3D { get => -1; }
         public virtual float GetValueToGoalCoin { get => 100;  }

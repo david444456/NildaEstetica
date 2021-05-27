@@ -20,6 +20,9 @@ namespace Est.AI
         [SerializeField] float timeInService = 0;
         [SerializeField] float pathEndThreshold = 0.1f;
 
+        [Header("View")]
+        [SerializeField] AudioSource audioSource;
+
         Vector3 spawnToReturnAfterService = Vector3.zero;
         bool completedService = false;
 
@@ -55,6 +58,8 @@ namespace Est.AI
         {
             if (navMeshAgent.hasPath)
             {
+
+                if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("Has path");
                 if (!completeServiceActualGo)
                 {
                     if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance + pathEndThreshold && !completedService)
@@ -64,6 +69,7 @@ namespace Est.AI
                         else
                             updateCharacterVoxelToAnimationService();
 
+                        if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("This car no complete service");
                         completedService = true;
 
                         StartCoroutine(timeCharacterInService());
@@ -76,6 +82,8 @@ namespace Est.AI
                     //OP
                     objectPooling.TheGoalOfTheGameObjectEnd(gameObject);
 
+
+                    if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("This car");
                     completedService = false;
 
                     //GO
@@ -83,6 +91,7 @@ namespace Est.AI
                     gameObject.SetActive(false);
                 }
             }
+            else if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("I have no path");
 
             animationControlVelocity();
 
@@ -99,7 +108,8 @@ namespace Est.AI
             spawnToReturnAfterService = destinationData.directionAICharacter;
 
             //navmesh
-            if(navMeshAgent.enabled) navMeshAgent.SetDestination(spawnToReturnAfterService);
+            if (navMeshAgent.enabled) navMeshAgent.SetDestination(spawnToReturnAfterService);
+            else print("You not have navmeshAgent");
         }
 
         private IEnumerator timeCharacterInService() {
@@ -113,6 +123,10 @@ namespace Est.AI
                 updateCharacterVoxelToAnimationAfterService();
             }
 
+            //sound
+            if(audioSource != null) audioSource.Play();
+
+            //return to spawn
             completeServiceActualGo = true;
             MoveCharacter();
         }
@@ -128,7 +142,7 @@ namespace Est.AI
         {
             gameObjectMeshRenderer.transform.parent = gameObject.transform;
             gameObjectMeshRenderer.transform.localPosition = Vector3.zero;
-            gameObjectMeshRenderer.transform.rotation = Quaternion.Euler(Vector3.zero);
+            gameObjectMeshRenderer.transform.localRotation = Quaternion.Euler(Vector3.zero);
         }
 
         private void animationControlVelocity() {
