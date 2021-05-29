@@ -67,6 +67,7 @@ namespace Est.Interact
 
         public void changeBackGroundAfterUnlocked()
         {
+            print("Unlock change the background");
             colorIsGreen = true;
             imageBackGroundCoin.color = colorBackGroundCoinAfterUnlocked;
         }

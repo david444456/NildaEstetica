@@ -26,7 +26,7 @@ namespace Tests
 
 
             //prepare
-            var core = Resources.Load("Prefab/Core/Core") as GameObject;
+            var core = Resources.Load("Prefab/Test/CoreTest") as GameObject;
             coreGO = GameObject.Instantiate(core, new Vector3(0, 0, 0), Quaternion.identity);
 
 

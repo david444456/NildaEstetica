@@ -13,6 +13,7 @@ namespace Tests
         ControlCoins controlCoins;
         ControlPrincipalUI controlPrincipalUI;
         GameObject camera;
+        GameObject objPool;
 
         GameObject coreGO;
 
@@ -23,6 +24,9 @@ namespace Tests
             var loadCamera = Resources.Load("Prefab/Core/Main Camera") as GameObject;
             camera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
 
+
+            var obj = Resources.Load("Prefab/Core/SpawnCars") as GameObject;
+            objPool = GameObject.Instantiate(obj, new Vector3(0, 0, 0), Quaternion.identity);
 
             //prepare
             var core = Resources.Load("Prefab/Core/Core") as GameObject;

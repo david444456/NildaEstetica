@@ -47,17 +47,6 @@ namespace Est.CycleGoal
             else {
                 controlCycleGoals._dataGoalIsPurchased = _dataGoalIsPurchased;
             }
-            /*
-            //load data goals
-            for (int i = 0; i < _dataGoalsQueue.Count && countGoalsInView < maxSlotInViewGoals; i++)
-            {
-                if (!_dataGoalIsPurchased[_dataGoalsQueue[i].name])
-                {
-                    controlDailyGoalsView.UpdateDataGoals(_dataGoalsQueue[i], countGoalsInView);
-                    _actualGoalsService.Add(_dataGoalsQueue[i]);
-                    countGoalsInView++;
-                }
-            }*/
 
             _actualGoalsService = controlCycleGoals.LoadDataActualGoalService();
 
@@ -84,9 +73,12 @@ namespace Est.CycleGoal
         private void OnDisable()
         {
             ControlCoins.PassLevelCoin -= NewEventCoinPassLevel;
-
             //des. other events 
         }
+
+        public List<DataGoal> GetActualGoalsInService() => _actualGoalsService;
+
+        public Dictionary<string, bool> GetDataBoolPurchased() => controlCycleGoals.GetDataGoalIsPurchased();
 
         public void SubscriptionToEvent(ref Action<TypeGoal> eventToSubscribe)
         {

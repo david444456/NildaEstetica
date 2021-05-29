@@ -20,7 +20,19 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
 
     void Start()
     {
-        actualLevel = (int) ControlCoins.Instance.ActualLevelUnits;
+        UpdateDataSlotMainAndTypeSlot();
+    }
+
+    public void UpdateDataSlotMainAndTypeSlot()
+    {
+        if (allSlotsMain.Length <= 0 || allSlotsMain[0] == null)
+        {
+            allSlotsMain = FindObjectsOfType<SlotMain>();
+            print("lengh is" + allSlotsMain.Length);
+            if (allSlotsMain.Length <= 0)
+                return;
+        }
+        actualLevel = (int)ControlCoins.Instance.ActualLevelUnits;
 
         //control change units
         ControlCoins.PassLevelCoin += AugmentIntLevelCoin;
@@ -33,7 +45,8 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
 
         //when no data
         if (dataSlotInfoGeneration.Count <= 0)
-            for (int i = 0; i < countMaxSlot.Length; i++) {
+            for (int i = 0; i < countMaxSlot.Length; i++)
+            {
                 dataSlotInfoGeneration.Add(countMaxSlot[i], 0);
                 dataSlotInfoLevelSlotMain.Add(countMaxSlot[i], 0);
             }
@@ -45,6 +58,8 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
     private void OnDisable()
     {
         ControlCoins.PassLevelCoin -= AugmentIntLevelCoin;
+
+        if (allSlotsMain.Length <= 0 || allSlotsMain[0] == null) return;
 
         //control slot when upgrade
         for (int i = 0; i < allSlotsMain.Length; i++)

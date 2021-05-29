@@ -180,15 +180,19 @@ namespace Tests
         [UnityTest]
         public IEnumerator SlotControlUITest_changeBackGroundAfterUnlocked_Update_AfterUnlockCanBuyAndVerifyChangeBackGround()
         {
-            //prepare
+
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
 
-            controlCoins.SetCoinGenerationPerSecond(1);
-            controlCoins.CoinsSinceLastSessionInMinutes(60000); //1k
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
+
+            yield return new WaitForEndOfFrame();
 
             SlotMain slotMain = FindObjectOfType<SlotMain>();
             SlotControlUI slotControlUI = slotMain.GetComponent<SlotControlUI>();
+
+            controlCoins.SetCoinGenerationPerSecond(1);
+            controlCoins.CoinsSinceLastSessionInMinutes(60000); //1k
 
             yield return new WaitForEndOfFrame();
 
@@ -216,9 +220,14 @@ namespace Tests
         [UnityTest]
         public IEnumerator SlotControlUITest_changeBackGroundAfterUnlocked_Update_AfterUnlockCantBuyAndVerifyNotChangeBackGround()
         {
+
             //prepare
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
+
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
+
+            yield return new WaitForEndOfFrame();
 
             controlCoins.SetCoinGenerationPerSecond(1);
             controlCoins.CoinsSinceLastSessionInMinutes(60000); //1k

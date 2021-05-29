@@ -9,7 +9,7 @@ using System;
 //gamemanager control coins
 public class ControlCoins : SingletonInInspector<ControlCoins>
 {
-    public static event Action<int> PassLevelCoin;
+    public static event Action<int> PassLevelCoin = delegate { };
 
     #region Private Var
 
@@ -33,9 +33,10 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
 
     #region Unity Functions
 
-    private void Start()
+    public override void Awake()
     {
-        controlUI = ControlPrincipalUI.Instance;
+        base.Awake();
+        controlUI = GetComponent<ControlPrincipalUI>();
     }
 
     private void Update()
@@ -102,6 +103,7 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
         {
             _coinGenerationPerSecond = value;
             _coinGenerationPerSecond = (float)Math.Round(_coinGenerationPerSecond, 3);
+            if (controlUI == null) print("Est");
             controlUI.changeTextGenerationCoins(_coinGenerationPerSecond, unitsStringValue[actualLevelOfCoinUnits]);
         }
 
@@ -145,6 +147,7 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
     /// <param name="TimeLastQuitGame">Time in minutes</param>
     public void CoinsSinceLastSessionInMinutes(int TimeLastQuitGame)
     {
+        print(Coins + _coins);
         Coins = _coins + TimeLastQuitGame / 60 * _coinGenerationPerSecond;
     }
 

@@ -56,7 +56,7 @@ namespace Tests
             //prepare
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
             SlotLocked slotLocked = slotMain.GetComponent<SlotLocked>();
 
@@ -107,7 +107,7 @@ namespace Tests
             //prepare
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
             SlotLocked slotLocked = slotMain.GetComponent<SlotLocked>();
 
@@ -133,7 +133,7 @@ namespace Tests
             //prepare
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
             SlotLocked slotLocked = slotMain.GetComponent<SlotLocked>();
 
@@ -159,7 +159,7 @@ namespace Tests
             //prepare
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
             SlotLocked slotLocked = slotMain.GetComponent<SlotLocked>();
 
@@ -189,7 +189,7 @@ namespace Tests
             //prepare
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             GameObject SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
 
             SlotMain slotMain = FindObjectOfType<SlotMain>();
             SlotLocked slotLocked = slotMain.GetComponent<SlotLocked>();
@@ -266,7 +266,7 @@ namespace Tests
             //prepare
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
             SlotLocked slotLocked = slotMain.GetComponent<SlotLocked>();
 
@@ -377,6 +377,8 @@ namespace Tests
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
 
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
+
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
@@ -404,7 +406,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
@@ -427,7 +429,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
@@ -451,7 +453,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForSeconds(1);
@@ -490,7 +492,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
@@ -519,7 +521,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
@@ -548,7 +550,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
@@ -591,7 +593,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
@@ -634,7 +636,7 @@ namespace Tests
 
             var Slot = Resources.Load("Prefab/Test/SlotForTestIndex0") as GameObject;
             var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
-
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
             SlotMain slotMain = FindObjectOfType<SlotMain>();
 
             yield return new WaitForEndOfFrame();
