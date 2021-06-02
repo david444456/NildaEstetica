@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ae3d434fa82a4fbcc9b8cebcbf36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 0
+  _coins: 900
   unitsStringValue:
   - 
   - K
@@ -3296,9 +3296,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2681307643813956999, guid: b513e9ff13456294f97df34118579cb4, type: 3}
+      propertyPath: m_Name
+      value: ImageGoal1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774159177375500034, guid: b513e9ff13456294f97df34118579cb4, type: 3}
+      propertyPath: m_Name
+      value: TextGoal1
+      objectReference: {fileID: 0}
     - target: {fileID: 5815481954062061777, guid: b513e9ff13456294f97df34118579cb4, type: 3}
       propertyPath: m_Name
-      value: BackGroundGoal
+      value: BackGroundGoal1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534437989247951821, guid: b513e9ff13456294f97df34118579cb4, type: 3}
+      propertyPath: m_Name
+      value: ButtonGetRewardGoal
       objectReference: {fileID: 0}
     - target: {fileID: 7110903291017923903, guid: b513e9ff13456294f97df34118579cb4, type: 3}
       propertyPath: m_LocalPosition.x

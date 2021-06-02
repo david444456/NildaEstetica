@@ -78,7 +78,9 @@ namespace Est.CycleGoal
 
         public List<DataGoal> GetActualGoalsInService() => _actualGoalsService;
 
-        public Dictionary<string, bool> GetDataBoolPurchased() => controlCycleGoals.GetDataGoalIsPurchased();
+        public ListCycleGoals GetListCycleGoals() => listCycleGoals;
+
+        public Dictionary<string, bool> GetDataBoolPurchased() => _dataGoalIsPurchased;
 
         public void SubscriptionToEvent(ref Action<TypeGoal> eventToSubscribe)
         {
@@ -93,7 +95,7 @@ namespace Est.CycleGoal
 
             //data goal bool
             controlCycleGoals.SetDataGoalIsPurchased(index);
-
+            _dataGoalIsPurchased = controlCycleGoals._dataGoalIsPurchased;
             //animation complete goal
 
             //new goal

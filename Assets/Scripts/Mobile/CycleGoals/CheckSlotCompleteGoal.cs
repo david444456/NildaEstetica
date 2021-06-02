@@ -11,7 +11,8 @@ namespace Est.CycleGoal
         public override bool VerifyCompleteGoal<SlotDataGoal>(SlotDataGoal dateGoal)
         {
             if (dateGoal.GetLevelTypeSlotToCheck < 0) return false;
-            return dateGoal.GetLevelTypeSlotToCheck >= slotInformation.GetLevelOfSlotByIndex(dateGoal.TypeSlotMain);
+            print("The level is: "+dateGoal.GetLevelTypeSlotToCheck + " " +slotInformation.GetLevelOfSlotByIndex(dateGoal.TypeSlotMain));
+            return dateGoal.GetLevelTypeSlotToCheck <= slotInformation.GetLevelOfSlotByIndex(dateGoal.TypeSlotMain);
         }
     }
 }

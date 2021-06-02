@@ -6,7 +6,8 @@ using UnityEngine;
 public class ItemInfoStore3D : MonoBehaviour
 {
     public bool IfPossibleToBuyAndDescontateCoins(ItemInfo3D Item) {
-        print($"{Item.dataItem.costItem}, {Item.dataItem.indexCostItem}");
+        print($" the cost of the item is {Item.dataItem.costItem}, and the index in the coin is: {Item.dataItem.indexCostItem}");
+        print($" The actual coin is {ControlCoins.Instance.Coins}, and the index in the coin is: {ControlCoins.Instance.ActualLevelUnits}");
         return ControlCoins.Instance.BuyAThing_CompateWithUnits(Item.dataItem.costItem, Item.dataItem.indexCostItem);
 
     }

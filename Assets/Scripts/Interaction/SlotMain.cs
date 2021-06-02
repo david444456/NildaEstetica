@@ -125,6 +125,7 @@ namespace Est.Interact
                 //exp and level
                 m_actualExp++;
                 slotControlUI.changeValueSliderExp(m_actualExp);
+                print("The actual exp is: " + m_actualExp);
 
                 //level
                 if (m_actualExp >= slotInformation.StatLevel.countToUpgradeLevelExp[m_actualLevel] &&

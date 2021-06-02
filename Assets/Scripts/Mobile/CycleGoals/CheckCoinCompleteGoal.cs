@@ -8,7 +8,6 @@ namespace Est.CycleGoal
     
         public override bool VerifyCompleteGoal<CoinDataGoal>(CoinDataGoal dataGoal)
         {
-            print(dataGoal.GetValueToGoalCoin + " " + ControlCoins.Instance.ActualLevelUnits);
             return dataGoal.GetValueToGoalCoin <= ControlCoins.Instance.ActualLevelUnits;
         }
     }

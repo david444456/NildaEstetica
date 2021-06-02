@@ -28,7 +28,6 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
         if (allSlotsMain.Length <= 0 || allSlotsMain[0] == null)
         {
             allSlotsMain = FindObjectsOfType<SlotMain>();
-            print("lengh is" + allSlotsMain.Length);
             if (allSlotsMain.Length <= 0)
                 return;
         }

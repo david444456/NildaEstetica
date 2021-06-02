@@ -13,5 +13,9 @@ namespace Est.CycleGoal
             if (dateGoal.IndexItemStore3D < 0) return false;
             return controlStore.GetIfItemStoreIsPurchased(dateGoal.IndexItemStore3D);
         }
+
+        public void SetControlStore(ControlStore3D newCtrolStore) {
+            controlStore = newCtrolStore;
+        }
     }
 }

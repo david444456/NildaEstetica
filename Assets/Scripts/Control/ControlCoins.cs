@@ -147,8 +147,9 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
     /// <param name="TimeLastQuitGame">Time in minutes</param>
     public void CoinsSinceLastSessionInMinutes(int TimeLastQuitGame)
     {
-        print(Coins + _coins);
+
         Coins = _coins + TimeLastQuitGame / 60 * _coinGenerationPerSecond;
+        print(Coins + _coins + " units: " + actualLevelOfCoinUnits);
     }
 
     /// <summary>
@@ -200,9 +201,9 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
     }
 
     private float notBrokeGameWithChangeUnitInGenerationPerSecond(int multiplicator) {
+        print(_coinGenerationPerSecond/1000 +" "+  multiplicator);
         float newGenerationPerSecond = (float)Math.Round(_coinGenerationPerSecond / 1000, multiplicator);
         if (newGenerationPerSecond == 0) {
-            print("miaukai");
             return notBrokeGameWithChangeUnitInGenerationPerSecond(multiplicator + 3);
         }
         return newGenerationPerSecond;

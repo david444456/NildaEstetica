@@ -394,7 +394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5019325183448750326
 Transform:
   m_ObjectHideFlags: 0
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 5019325183882819143}
   - component: {fileID: 5019325183882819136}
   m_Layer: 0
-  m_Name: RightButton
+  m_Name: RightButtonStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
