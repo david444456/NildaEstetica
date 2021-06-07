@@ -39,8 +39,8 @@ MonoBehaviour:
     - 30
     - 30
     gameObjectsByLevel:
-    - {fileID: -2432090755550338912, guid: ab20fe3ad2fa8c149b188140e4251dfa, type: 3}
     - {fileID: -2432090755550338912, guid: 0a76151af165a0447aa2cb48cea627d9, type: 3}
+    - {fileID: -2432090755550338912, guid: eb0cc8b0388ff834fb69c53bed136b75, type: 3}
     - {fileID: -2432090755550338912, guid: eb0cc8b0388ff834fb69c53bed136b75, type: 3}
     - {fileID: -2432090755550338912, guid: d59504bb2ad7d4e4485ecf68bed821f1, type: 3}
     - {fileID: -2432090755550338912, guid: 3a625e625317c944f88bdf152bbeacc2, type: 3}
