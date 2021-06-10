@@ -10,6 +10,7 @@ public class ControlPrincipalUI : SingletonInInspector<ControlPrincipalUI>, ICon
 
     [Header("UI")]
     [SerializeField] Text textCoin = null;
+    [SerializeField] Text textCoinPremium = null;
     [SerializeField] Text textGenerationCoin = null;
     [SerializeField] GameObject GOTextInformationSlot = null;
     [SerializeField] Text textInformationSlot = null;
@@ -45,6 +46,11 @@ public class ControlPrincipalUI : SingletonInInspector<ControlPrincipalUI>, ICon
 
     public void changeTextCoins(float newTextCoin, string keyStringUnit) {
         textCoin.text = MathFunction.ChangeUnitNumberWithString(newTextCoin, keyStringUnit);
+    }
+
+    public void changeTextCoinPremium(int newTextCoin)
+    {
+        textCoinPremium.text = newTextCoin.ToString();
     }
 
     public void changeTextGenerationCoins(float coinGenerationPerSecond, string keyStringUnit)
@@ -85,5 +91,5 @@ public interface IControlUI {
     void changeTextCoins(float newTextCoin, string keyStringUnit);
     void changeTextGenerationCoins(float coinGenerationPerSecond, string keyStringUnit);
     void ShowInformationSlot(string textSlot, Sprite spriteSlot, TypeSlot typeSlot);
-    
+    void changeTextCoinPremium(int newTextCoin);
 }

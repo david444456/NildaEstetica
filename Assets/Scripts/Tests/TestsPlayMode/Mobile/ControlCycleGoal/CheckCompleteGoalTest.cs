@@ -44,7 +44,7 @@ namespace Tests
             List<DataGoal> dat = view.GetActualGoalsInService();
 
             FindObjectOfType<ControlCoins>().SetCoinGenerationPerSecond(1);
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(10000);
+            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(600000);
             yield return new WaitForEndOfFrame(); //update
 
             yield return new WaitForEndOfFrame(); //update
@@ -175,6 +175,8 @@ namespace Tests
             yield return new WaitForEndOfFrame();
 
             FindObjectOfType<SlotMain>().OnTouchThisObject();
+
+            print("Aca es 8");
 
             yield return new WaitForEndOfFrame();
 

@@ -16,6 +16,7 @@ namespace Est.Interact
     public enum TypeSlotMainBusiness {
         Hairdressing,
         Massages,
+        GYM,
         Esthetic,
     }
 }

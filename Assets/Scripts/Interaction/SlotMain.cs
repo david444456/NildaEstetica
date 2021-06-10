@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using Est.Data;
 using Est.AI;
+using Est.Core;
 using System;
+using Est.Mobile.Save;
 
 namespace Est.Interact
 {
     [RequireComponent(typeof(SlotLocked))]
-    public class SlotMain : MonoBehaviour, ISlot, ISlotMain
+    public class SlotMain : MonoBehaviour, ISlot, ISlotMain, ISaveable
     {
-        public event Action<int, TypeSlotMainBusiness> NewUpgradeLevelSlot;
+        public event Action<int, TypeSlotMainBusiness> NewUpgradeLevelSlot = delegate { };
         public SlotInformation slotInformation;
 
         [SerializeField] int indexSlot = 1;
@@ -61,8 +63,9 @@ namespace Est.Interact
                 if (m_CostToUpgradeSlot <= 0)
                 {
                     UpgradeDataForThisSlot_DataForSlotInformation();
-                    slotControlUI.changeTextUpgradeCoin(m_CostToUpgradeSlot, controlCoins.GetStringValueUnitWithIndex(m_indexLevelStringToChangeUnit));
+
                 }
+                slotControlUI.changeTextUpgradeCoin(m_CostToUpgradeSlot, controlCoins.GetStringValueUnitWithIndex(m_indexLevelStringToChangeUnit));
             }
             else
             {
@@ -184,6 +187,34 @@ namespace Est.Interact
 
         private void CallControlSlotInformationPassInformation(float newValue) =>
             ControlSlotInformation.Instance.AugmentGenerationInTypeSlot(slotType.GetTypeSlot(), newValue);
+
+        public object CaptureState()
+        {
+            int[] save = new int[5];
+            save[0] = (int)m_CostToUpgradeSlot; //because the number is < 1000, then i can convert it
+            save[1] = m_indexLevelStringToChangeUnit;
+            save[2] = m_actualExp;
+            save[3] = m_actualLevel;
+            save[4] = IsSlotLocked ? 1 : 0;
+
+            return save;
+        }
+
+        public void RestoreState(object state)
+        {
+            int[] save = (int[])state;
+
+            m_CostToUpgradeSlot = save[0];
+            m_indexLevelStringToChangeUnit =save[1];
+            m_actualExp = save[2];
+            m_actualLevel = save[3];
+
+            if (save[4] == 0) {
+                IsSlotLocked = false;
+                GetComponent<SlotLocked>().ActivatedUnlockEvent();
+                GetComponent<SlotControlUI>().changeBackGroundColorLocked();
+            }
+        }
     }
 
     public interface ISlotMain{

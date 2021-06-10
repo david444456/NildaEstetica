@@ -77,7 +77,7 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
         dataSlotInfoGeneration[typeSlotMain];
 
     public float GetLevelOfSlotByIndex(TypeSlotMainBusiness typeSlotMain) =>
-        dataSlotInfoGeneration[typeSlotMain];
+        dataSlotInfoLevelSlotMain[typeSlotMain];
 
     private void AugmentIntLevelCoin(int newLevel) {
         for (int i = 0; i < countMaxSlot.Length; i++)
@@ -91,10 +91,12 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
 
     private void AugmentLevelSlotMainByType(int newLevel, TypeSlotMainBusiness typeSlotMainBusiness)
     {
+        Debug.Log(newLevel.ToString() + " " + typeSlotMainBusiness + " " + dataSlotInfoLevelSlotMain[typeSlotMainBusiness]);
         if (newLevel < dataSlotInfoLevelSlotMain[typeSlotMainBusiness]) Debug.LogError("Error level int: the new level is smaller than the actual value.");
 
 
         dataSlotInfoLevelSlotMain[typeSlotMainBusiness] = newLevel;
+        Debug.Log(newLevel.ToString() + " " + typeSlotMainBusiness + " " + dataSlotInfoLevelSlotMain[typeSlotMainBusiness]);
         NewPassLevelSlot.Invoke(TypeGoal.Slot);
     }
 }

@@ -63,9 +63,10 @@ public struct MathFunction
     /// <returns></returns>
     public static bool CompareTwoValuesWithUnitsIfFirstIsBiggerThanSecond(float coins, float value, int indexLevelActual, int indexActualValueToCompare) {
         int difLevel = indexLevelActual - indexActualValueToCompare;
-        //Debug.Log($" {difLevel} {indexLevelActual} {indexActualValueToCompare}");
+       // Debug.Log($" {difLevel} {indexLevelActual} {indexActualValueToCompare} the dif coin is; {(coins - Mathf.Pow(10, (-1) * 3 * difLevel) * value)}" );
         if (difLevel < 0) return false;
         if (difLevel == 0) return (coins - value) >= 0;
+        if(difLevel > 0) return (coins - Mathf.Pow(10, (-1) * 3 * difLevel) * value) >= 0;
         return true;
     }
 }

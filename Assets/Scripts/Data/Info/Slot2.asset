@@ -25,7 +25,8 @@ MonoBehaviour:
     - 10
     - 30
     gameObjectsByLevel:
-    - {fileID: -2432090755550338912, guid: fe63f0b21e4e2d74aaf0e0f169b97707, type: 3}
-    - {fileID: -2432090755550338912, guid: 8305f81865a831a4cbdd3837ac58b33b, type: 3}
+    - {fileID: -2432090755550338912, guid: 4974cd045f0008b4ba95f084829b91a9, type: 3}
+    - {fileID: -2432090755550338912, guid: 2af81a8ae29cf154fbfaeeaca8cdfe45, type: 3}
+    - {fileID: -2432090755550338912, guid: 175de0e82eeac1b488777dae3ea60f13, type: 3}
   textInformation: Un salon de masajes ideal para vos perra
   spriteBossSlot: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

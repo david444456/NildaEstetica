@@ -59,7 +59,7 @@ namespace Est.AI
             if (navMeshAgent.hasPath)
             {
 
-                if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("Has path");
+                //if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("Has path");
                 if (!completeServiceActualGo)
                 {
                     if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance + pathEndThreshold && !completedService)
@@ -91,7 +91,7 @@ namespace Est.AI
                     gameObject.SetActive(false);
                 }
             }
-            else if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("I have no path");
+            //else if (typeObjectPoolingINeed == TypeObjectPooling.Car) print("I have no path");
 
             animationControlVelocity();
 

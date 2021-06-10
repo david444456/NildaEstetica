@@ -63,6 +63,27 @@ namespace Tests
         }
 
         [UnityTest]
+        public IEnumerator ControlCoinPremium_ChangeValueOFthePremiumCoin_SetUI_ReceivedCall()
+        {            //prepare
+
+            var controlUI = Substitute.For<IControlUI>();
+            controlCoins.SetCoinGenerationPerSecond(1);
+
+            yield return new WaitForEndOfFrame(); //start
+
+            //prepare
+            controlCoins.GetComponent<ControlCoinPremium>().ChangePrincipalUI(controlUI);
+            controlCoins.GetComponent<ControlCoinPremium>().SetAugmentPremiumCoin(60000); //1
+
+            yield return new WaitForEndOfFrame();
+
+
+            controlUI.
+            Received(1).
+            changeTextCoinPremium(Arg.Any<int>());
+        }
+
+        [UnityTest]
         public IEnumerator ControlPrincipalUICallTextGenerationCoins_ReceivedCall()
         {        
             //prepare
