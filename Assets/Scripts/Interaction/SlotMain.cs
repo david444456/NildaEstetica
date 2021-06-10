@@ -58,6 +58,8 @@ namespace Est.Interact
                 //unlocked
                 slotLocked.changeLockedToUnlocked();
                 controlCoins.SetCoinGenerationPerSecond((int)slotInformation.StatLevel.multiplicatorLevels[m_actualLevel] * m_coinsPerSecond);
+                //gameobject
+                slotControlUI.changeMeshByUpdateLevel(slotInformation.StatLevel.gameObjectsByLevel[m_actualLevel]);
 
                 //cost
                 if (m_CostToUpgradeSlot <= 0)
