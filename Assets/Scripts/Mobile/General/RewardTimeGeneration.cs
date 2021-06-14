@@ -16,6 +16,8 @@ namespace Est.Mobile
 
         private ControlCoins controlCoins;
         private int timeLastQuitGame = 0;
+        private int rewardByBeingAFK = 0;
+        private int limitMaxRewardByBeingAFK = 24;
 
         // Start is called before the first frame update
         void Start()
@@ -28,19 +30,23 @@ namespace Est.Mobile
                 gameObjectRewardPoster.SetActive(true);
                 
                 timeLastQuitGame = timeQuitGame;
+                if (timeLastQuitGame >= limitMaxRewardByBeingAFK) rewardByBeingAFK = limitMaxRewardByBeingAFK;
+                else rewardByBeingAFK = timeLastQuitGame;
 
-                textCoinsReward.text = MathFunction.ChangeUnitNumberWithString(timeLastQuitGame * 60 * controlCoins.CoinGenerationSecond, "");
+                textCoinsReward.text = MathFunction.ChangeUnitNumberWithString(MultiplicatorNumberByCoinGeneration(rewardByBeingAFK), "");
             }
         }
 
         public void ClaimRewardVideoGeneration() {
             gameObjectRewardPoster.SetActive(false);
-            controlCoins.CoinsSinceLastSessionInMinutes(timeLastQuitGame*2);
+            controlCoins.CoinsSinceLastSessionInMinutes(MultiplicatorNumberByCoinGeneration(rewardByBeingAFK) * 2);
         }
 
         public void ClaimRewardNormalGeneration() {
             gameObjectRewardPoster.SetActive(false);
-            controlCoins.CoinsSinceLastSessionInMinutes(timeLastQuitGame);
+            controlCoins.CoinsSinceLastSessionInMinutes(MultiplicatorNumberByCoinGeneration(rewardByBeingAFK));
         }
+
+        private float MultiplicatorNumberByCoinGeneration(int number) => (number * controlCoins.CoinGenerationSecond);
     }
 }

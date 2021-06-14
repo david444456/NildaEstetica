@@ -145,11 +145,11 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
     /// Set coins with last session in minutes / 60 (hours)
     /// </summary>
     /// <param name="TimeLastQuitGame">Time in minutes</param>
-    public void CoinsSinceLastSessionInMinutes(int TimeLastQuitGame)
+    public void CoinsSinceLastSessionInMinutes(float TimeLastQuitGame)
     {
-
-        Coins = _coins + TimeLastQuitGame / 60 * _coinGenerationPerSecond;
-        print(Coins + _coins + " units: " + actualLevelOfCoinUnits);
+        print(_coins + " " + TimeLastQuitGame);
+        Coins = _coins + TimeLastQuitGame;
+        print(Coins + " units: " + actualLevelOfCoinUnits + ", time last quit game: " + TimeLastQuitGame +", new coin is: " + _coins + (TimeLastQuitGame));
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
 
     private void SetAugmentCoin(float newCoin) {
         //limit to augmentCoins
-
+        print(_coins + " " + newCoin);
         _coins = (float)Math.Round(newCoin, 3);
 
         //upgrade level
@@ -189,6 +189,7 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
         {
             //coins
             actualLevelOfCoinUnits++;
+
             _coins = (float) Math.Round(_coins / 1000, 3);
 
             //coin

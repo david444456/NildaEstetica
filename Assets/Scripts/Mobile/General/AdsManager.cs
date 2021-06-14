@@ -32,12 +32,9 @@ namespace Est.Mobile
 
         IEnumerator RewardVerification() {
             yield return new WaitForSeconds(1/2);
-            if (playerSession.GetTimeMinute() > 0 && playerSession.GetTimeHour() < timeForSaveRecompenseHours)
+            if (playerSession.GetTimeMinute() > 0 && playerSession.GetTimeHour() >= timeForSaveRecompenseHours)
             {
-                rewardTimeGeneration.rewardCoinsGeneration((int)Mathf.Round(playerSession.GetTimeMinute()));
-            }
-            else if (playerSession.GetTimeHour() >= 24) {
-                //daily reward
+                rewardTimeGeneration.rewardCoinsGeneration((int)Mathf.Round(playerSession.GetTimeHour())); //
             }
         }
     }
