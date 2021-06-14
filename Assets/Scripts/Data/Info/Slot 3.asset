@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e48f6ffa04b09440a9600e71880706c, type: 3}
-  m_Name: Slot2
+  m_Name: Slot 3
   m_EditorClassIdentifier: 
   StatLevel:
     costsToUnlockedSlot: 24
@@ -25,8 +25,10 @@ MonoBehaviour:
     - 10
     - 30
     gameObjectsByLevel:
-    - {fileID: -2432090755550338912, guid: 4974cd045f0008b4ba95f084829b91a9, type: 3}
-    - {fileID: -2432090755550338912, guid: 2af81a8ae29cf154fbfaeeaca8cdfe45, type: 3}
-    - {fileID: -2432090755550338912, guid: 175de0e82eeac1b488777dae3ea60f13, type: 3}
-  textInformation: Un salon de masajes ideal para vos perra
+    - {fileID: -2432090755550338912, guid: 18ce773f858a3644eaf130f83fcd8036, type: 3}
+    - {fileID: -2432090755550338912, guid: 65eafb7c2c9ab884bb00af60fca9460c, type: 3}
+    - {fileID: -2432090755550338912, guid: 044697e12edf1b84aacca2db48086881, type: 3}
+    - {fileID: -2432090755550338912, guid: 3ecd9424a501c144d99b658cd87d2fa3, type: 3}
+    - {fileID: -2432090755550338912, guid: 6320b81497890ff43a2b26409d259c63, type: 3}
+  textInformation: Massages
   spriteBossSlot: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

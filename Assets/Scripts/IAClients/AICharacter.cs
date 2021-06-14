@@ -134,7 +134,7 @@ namespace Est.AI
         private void updateCharacterVoxelToAnimationService() {
             gameObjectMeshRenderer.transform.parent = null;
             gameObjectMeshRenderer.transform.position = destinationData.positionSlotAnimationWorkCorrectly;
-            gameObjectMeshRenderer.transform.rotation = Quaternion.Euler( destinationData.rotationSlotAnimationWorkCorrectly);
+            gameObjectMeshRenderer.transform.rotation = destinationData.rotationSlotAnimationWorkCorrectly;
             animatorCharacter.Play(destinationData.animationTextInService); 
         }
 
