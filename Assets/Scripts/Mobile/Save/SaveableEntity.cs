@@ -19,7 +19,6 @@ namespace Est.Mobile.Save
             Dictionary<string, object> state = new Dictionary<string, object>();
             foreach (ISaveable saveable in GetComponents<ISaveable>())
             {
-                Debug.Log(saveable.GetType().ToString());
                 state[saveable.GetType().ToString()] = saveable.CaptureState();
             }
             return state;

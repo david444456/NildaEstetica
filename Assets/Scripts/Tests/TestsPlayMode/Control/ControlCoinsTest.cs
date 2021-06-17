@@ -46,7 +46,7 @@ namespace Tests
             yield return new WaitForEndOfFrame(); //start
 
             //prepare
-            controlCoins.CoinsSinceLastSessionInMinutes(60000); //1
+            controlCoins.CoinsSinceLastSessionInMinutes(1000); //1
 
             yield return new WaitForEndOfFrame();
 
@@ -275,7 +275,7 @@ namespace Tests
 
             //prepare
             controlCoins.SetCoinGenerationPerSecond(1);
-            controlCoins.CoinsSinceLastSessionInMinutes(180000); //3k
+            controlCoins.CoinsSinceLastSessionInMinutes(3000); //3k
             controlCoins.BuyAThing_CompateWithUnits(coinToCompare, indexCoins); //coins = 2800
 
             yield return new WaitForEndOfFrame();

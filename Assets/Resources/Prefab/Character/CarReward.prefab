@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIImageInfo: {fileID: 6489640845591513778}
+  textUIImageInfoAboutCoin: {fileID: 1761147650567207176}
 --- !u!1001 &2705676528987496007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,6 +302,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7456498376358414980, guid: 75cf76834634d314c8821cd689585128, type: 3}
+      propertyPath: m_Text
+      value: Present
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cf76834634d314c8821cd689585128, type: 3}
 --- !u!1 &6489640845591513778 stripped
@@ -308,3 +313,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2667751962259601726, guid: 75cf76834634d314c8821cd689585128, type: 3}
   m_PrefabInstance: {fileID: 9154155242937168780}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1761147650567207176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7456498376358414980, guid: 75cf76834634d314c8821cd689585128, type: 3}
+  m_PrefabInstance: {fileID: 9154155242937168780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

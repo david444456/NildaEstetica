@@ -45,6 +45,7 @@ namespace Est.Mobile
         private void OnRewardCar()
         {
             print("OnRewardCar");
+            controlRewardCoin.NewRewardCar();
             mobileManager.VideoIsComplete -= OnRewardCar;
         }
     }

@@ -4,10 +4,12 @@ using UnityEngine;
 using Est.Interact;
 using UnityEngine.UI;
 using Est.Data;
+using Est.Mobile;
 using System;
+using Est.Mobile.Save;
 
 //gamemanager control coins
-public class ControlCoins : SingletonInInspector<ControlCoins>
+public class ControlCoins : SingletonInInspector<ControlCoins>, ISaveable
 {
     public static event Action<int> PassLevelCoin = delegate { };
 
@@ -19,7 +21,7 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
     [Header("Change units")]
     [SerializeField] string[] unitsStringValue = null; //needs change to scriptableObjects
 
-    private float _coinGenerationPerSecond = 0;
+    private float _coinGenerationPerSecond = 1;
     private int actualLevelOfCoinUnits = 0;
 
     private float m_actualTime = 0;
@@ -37,6 +39,14 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
     {
         base.Awake();
         controlUI = GetComponent<ControlPrincipalUI>();
+    }
+
+    private void Start()
+    {
+        if (CoinGenerationSecond == 0) SetCoinGenerationPerSecond(1);
+
+        ///ui
+        ControlPrincipalUI.Instance.changeTextCoins(_coins, unitsStringValue[actualLevelOfCoinUnits]);
     }
 
     private void Update()
@@ -208,6 +218,31 @@ public class ControlCoins : SingletonInInspector<ControlCoins>
             return notBrokeGameWithChangeUnitInGenerationPerSecond(multiplicator + 3);
         }
         return newGenerationPerSecond;
+    }
+
+    //save system
+    public object CaptureState()
+    {
+        float[] save = new float[4];
+        save[0] = Coins; //because the number is < 1000, then i can convert it
+        save[1] = ActualLevelUnits;
+        save[2] = CoinGenerationSecond;
+
+        print((int)save[1] + " " + save[2] + " " + save[0]);
+        //save[3] = m_actualLevel;
+
+        return save;
+    }
+
+    public void RestoreState(object state)
+    {
+        float[] save = (float[])state;
+
+        print((int)save[1] + " " + save[2] + " " + save[0]);
+        actualLevelOfCoinUnits = (int)save[1];
+        AugmentCoinRewardCoin(save[0]);
+        CoinGenerationSecond = save[2];
+
     }
 
     #endregion

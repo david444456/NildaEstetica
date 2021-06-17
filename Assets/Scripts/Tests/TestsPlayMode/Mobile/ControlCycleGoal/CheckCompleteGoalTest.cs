@@ -44,7 +44,7 @@ namespace Tests
             List<DataGoal> dat = view.GetActualGoalsInService();
 
             FindObjectOfType<ControlCoins>().SetCoinGenerationPerSecond(1);
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(600000);
+            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(10000* FindObjectOfType<ControlCoins>().CoinGenerationSecond);
             yield return new WaitForEndOfFrame(); //update
 
             yield return new WaitForEndOfFrame(); //update
@@ -69,14 +69,14 @@ namespace Tests
             GameObject store = GameObject.Instantiate(goStore3D, new Vector3(1, 0, 1), Quaternion.identity);
 
             FindObjectOfType<ControlCoins>().SetCoinGenerationPerSecond(1);
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(10000);
+            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(1000 * FindObjectOfType<ControlCoins>().CoinGenerationSecond);
             yield return new WaitForEndOfFrame(); //update
 
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(10000);
+            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(1000 * FindObjectOfType<ControlCoins>().CoinGenerationSecond);
 
             yield return new WaitForEndOfFrame(); //update
 
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(600000); //10k coin
+            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(10000 * FindObjectOfType<ControlCoins>().CoinGenerationSecond); //10k coin
 
             CheckStore3DCompleteGoal checkStor = FindObjectOfType<CheckStore3DCompleteGoal>();
 
@@ -107,7 +107,7 @@ namespace Tests
             List<DataGoal> dat = view.GetActualGoalsInService();
 
             FindObjectOfType<ControlCoins>().SetCoinGenerationPerSecond(1);
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(600000);
+            FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(1000);
             yield return new WaitForEndOfFrame(); //update
 
             var Slot = Resources.Load("Prefab/Slot") as GameObject;
@@ -118,16 +118,14 @@ namespace Tests
 
             CheckSlotCompleteGoal checkSlot = FindObjectOfType<CheckSlotCompleteGoal>();
 
-            FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(600000);
+            FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(10000);
             yield return new WaitForEndOfFrame(); //update
-            FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(600000);
-            yield return new WaitForEndOfFrame(); //update
-            FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(600000);
             yield return new WaitForEndOfFrame(); //update
 
             FindObjectOfType<SlotLocked>().OnTouchThisObject();
 
             yield return new WaitForEndOfFrame(); //update
+            FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(100);
 
             FindObjectOfType<SlotMain>().OnTouchThisObject();
 
@@ -135,19 +133,19 @@ namespace Tests
 
 
             FindObjectOfType<SlotMain>().OnTouchThisObject();
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(10000);
+            //FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(1000 );
 
             yield return new WaitForEndOfFrame();
 
 
             FindObjectOfType<SlotMain>().OnTouchThisObject();
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(10000);
+            //FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(1000 );
 
             yield return new WaitForEndOfFrame();
 
 
             FindObjectOfType<SlotMain>().OnTouchThisObject();
-            FindObjectOfType<ControlCoins>().CoinsSinceLastSessionInMinutes(600000);
+           // FindObjectOfType<ControlCoins>().AugmentCoinRewardCoin(10000);
 
             yield return new WaitForEndOfFrame();
 

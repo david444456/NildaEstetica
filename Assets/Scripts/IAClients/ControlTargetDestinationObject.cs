@@ -23,11 +23,9 @@ namespace Est.AI
             destinationData.directionAICharacter = transform.position;
             if (transformCorrectAnimation != null)
             {
-                print( GetComponentInParent<Transform>().GetComponentInParent<Transform>().name+" " + transformCorrectAnimation.position + " " + transformCorrectAnimation.localPosition);
                 destinationData.positionSlotAnimationWorkCorrectly = transformCorrectAnimation.localPosition;
                 destinationData.rotationSlotAnimationWorkCorrectly = transformCorrectAnimation.localRotation;
             }
-            print(GetComponentInParent<Transform>().GetComponentInParent<Transform>().name + " " + destinationData.rotationSlotAnimationWorkCorrectly);
 
             slotLocked = GetComponent<SlotLocked>();
             if(slotLocked != null)

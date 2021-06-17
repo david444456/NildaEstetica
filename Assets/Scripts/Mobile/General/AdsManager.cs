@@ -13,20 +13,39 @@ namespace Est.Mobile
 
         [SerializeField] int timeForSaveRecompenseHours = 24;
 
+        [Header("Ads")]
+        [SerializeField] string placementNormalVideoID = "video"; //ID del anuncio
+        [SerializeField] string placementRewardedID = "rewardedVideo"; //ID del anuncio
+
         private PlayerSessionView playerSession;
         private RewardTimeGeneration rewardTimeGeneration;
+        private ADSRewardedVideo aDSRewardedVideo;
 
         void Start()
         {
             playerSession = GetComponent<PlayerSessionView>();
             rewardTimeGeneration = GetComponent<RewardTimeGeneration>();
 
+            //set ads
+            aDSRewardedVideo = new ADSRewardedVideo(placementRewardedID);
+            aDSRewardedVideo.ICompleteVideo += CompleteVideoReward;
+
             //reward
             StartCoroutine(RewardVerification());
         }
 
+        private void OnDisable()
+        {
+            aDSRewardedVideo.ICompleteVideo -= CompleteVideoReward;
+        }
+
         public void InstantiateVideoReward() {
-            print("Video reward");
+
+            aDSRewardedVideo.ShowVideo();
+        }
+
+        private void CompleteVideoReward() {
+            print("Video complete");
             VideoIsComplete.Invoke();
         }
 

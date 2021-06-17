@@ -57,7 +57,7 @@ namespace Est.Interact
             {
                 //unlocked
                 slotLocked.changeLockedToUnlocked();
-                controlCoins.SetCoinGenerationPerSecond((int)slotInformation.StatLevel.multiplicatorLevels[m_actualLevel] * m_coinsPerSecond);
+                //controlCoins.SetCoinGenerationPerSecond((int)slotInformation.StatLevel.multiplicatorLevels[m_actualLevel] * m_coinsPerSecond);
                 //gameobject
                 slotControlUI.changeMeshByUpdateLevel(slotInformation.StatLevel.gameObjectsByLevel[m_actualLevel]);
 
@@ -76,6 +76,7 @@ namespace Est.Interact
 
             //slider
             slotControlUI.changeMaxValueSliderExp(slotInformation.StatLevel.countToUpgradeLevelExp[m_actualLevel]);
+            slotControlUI.changeValueSliderExp(m_actualExp);
         }
 
         public long CostToUpgradeSlot { get => m_CostToUpgradeSlot; }
@@ -97,6 +98,7 @@ namespace Est.Interact
             if (!IsSlotLocked)
                 UpgradeSlot();
 
+            print("OnTouchThisObject" + IsSlotLocked);
             //information
             controlUI.ShowInformationSlot(slotInformation.textInformation, slotInformation.spriteBossSlot, TypeSlot.SlotMainCoin);
         }
@@ -149,6 +151,7 @@ namespace Est.Interact
                     slotControlUI.changeMeshByUpdateLevel(slotInformation.StatLevel.gameObjectsByLevel[m_actualLevel]);
                 }
             }
+            else print("Not enough money");
         }
 
         private void UnlockedSlot()

@@ -7,8 +7,9 @@ namespace Est.Mobile
 {
     public class ControlRewardCoin : MonoBehaviour
     {
-        private float m_multiplicatorControlCoinReward = 0;
+        [SerializeField] private float m_multiplicatorControlCoinReward = 0;
         private float m_lastRewardCoin = 0;
+        private int m_lastIndexCoinReward = 0;
 
         void Start()
         {
@@ -16,6 +17,7 @@ namespace Est.Mobile
         }
 
         public void NewRewardCar() {
+            float rewardConvert = ControlCoins.Instance.WithDifUnits_ReturnNumberConvertedToTheMainUnit(m_lastRewardCoin, m_lastIndexCoinReward);
             ControlCoins.Instance.AugmentCoinRewardCoin(m_lastRewardCoin);
         }
 
@@ -27,6 +29,7 @@ namespace Est.Mobile
 
         public float GetNewRewardCar() {
             m_lastRewardCoin = m_multiplicatorControlCoinReward * ControlCoins.Instance.Coins;
+            m_lastIndexCoinReward = (int)ControlCoins.Instance.ActualLevelUnits;
             return m_lastRewardCoin;
         }
     }

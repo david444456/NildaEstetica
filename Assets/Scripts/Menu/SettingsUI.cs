@@ -19,6 +19,11 @@ public class SettingsUI : MonoBehaviour
         GOSettingsUI.SetActive(changeBool);
     }
 
+    public void RemoveAds() {
+        ExitToSetting();
+        print("RemoveAds");
+    }
+
     public void ExitToSetting() {
         GOSettingsUI.SetActive(false);
     }

@@ -57,17 +57,18 @@ public class RateMore : MonoBehaviour
 
     public void Rate ()
 	{
-       // OnRemoveForeverClick();
+        // OnRemoveForeverClick();
 
-        // "market" works for android  (iOS: put your app link
-        Application.OpenURL ("market://details?id=com.test.testtest");
+        // "market" works for android  (iOS: put your app link        // "market" works for android  (iOS: put your app link
+        Application.OpenURL("market://details?id=com.TidiGames.ShipMath");
     }
 
 	public void More ()
 	{
-		// Android  ,(iOS: put you app store link)
-		Application.OpenURL ("https://play.google.com/store/apps/dev?id=1551996653619230352");
-	}
+        // Android  ,(iOS: put you app store link)
+        // Android  ,(iOS: put you app store link)
+        Application.OpenURL("https://play.google.com/store/apps/developer?id=Tidi+Games");
+    }
 
 	public void Feedback ()
 	{
