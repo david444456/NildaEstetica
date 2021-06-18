@@ -2083,7 +2083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000861798816839301, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: uniqueIdentifier
-      value: Slot1
+      value: GymSlot4
       objectReference: {fileID: 0}
     - target: {fileID: 6121958888512298713, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3148,7 +3148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000861798816839301, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: uniqueIdentifier
-      value: Slot1
+      value: GymSlot1
       objectReference: {fileID: 0}
     - target: {fileID: 6121958888512298713, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3720,7 +3720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000861798816839301, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: uniqueIdentifier
-      value: Slot2
+      value: GymSlot3
       objectReference: {fileID: 0}
     - target: {fileID: 6121958888512298713, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4202,7 +4202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000861798816839301, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: uniqueIdentifier
-      value: Slot2
+      value: GymSlot2
       objectReference: {fileID: 0}
     - target: {fileID: 6121958888512298713, guid: d480459e783a35745af394da45bfe31e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5699,6 +5699,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1844228265954259660, guid: 1689dddaef48dc2408ba4b96cab6d275, type: 3}
+      propertyPath: gameObjectsPrefabSpawnGameObject.Array.data[1]
+      value: 
+      objectReference: {fileID: 7822942362076347842, guid: 9552fc8839a6b80488413311c706d4fa, type: 3}
+    - target: {fileID: 1844228265954259660, guid: 1689dddaef48dc2408ba4b96cab6d275, type: 3}
+      propertyPath: gameObjectsPrefabSpawnGameObject.Array.data[2]
+      value: 
+      objectReference: {fileID: 7822942362076347842, guid: 9552fc8839a6b80488413311c706d4fa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1689dddaef48dc2408ba4b96cab6d275, type: 3}
 --- !u!114 &4067508809422695707 stripped

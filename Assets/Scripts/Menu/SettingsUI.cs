@@ -8,11 +8,17 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] GameObject GOSettingsUI= null;
 
     AudioSource[] audioS = null;
+    float[] controlVolume;
     private bool ActiveSound = true;
 
     private void Start()
     {
         audioS = FindObjectsOfType<AudioSource>();
+        controlVolume = new float[audioS.Length];
+
+        for (int i = 0; i < controlVolume.Length; i++) {
+            controlVolume[i] = audioS[i].volume;
+        }
     }
 
     public void changeStateSettingUI(bool changeBool) {
@@ -31,18 +37,30 @@ public class SettingsUI : MonoBehaviour
     public void ActiveOrDesactiveSound() {
         if (ActiveSound)
         {
-            GetAudioSourcesAndChangeVolume(0);
+            GetAudioSourcesAndChangeVolume(false);
         }
         else
-            GetAudioSourcesAndChangeVolume(1);
+            GetAudioSourcesAndChangeVolume(true);
 
         ActiveSound = !ActiveSound;
     }
 
-    void GetAudioSourcesAndChangeVolume(int vol) {
+    void GetAudioSourcesAndChangeVolume(bool vol) {
         print(vol);
-        foreach (AudioSource audio in audioS) {
-            audio.volume = vol;
+        if (vol) ReturnVolumeObjects();
+        else
+        {
+            foreach (AudioSource audio in audioS)
+            {
+                audio.volume = 0;
+            }
+        }
+    }
+
+    private void ReturnVolumeObjects() {
+        for (int i = 0; i < controlVolume.Length; i++)
+        {
+            audioS[i].volume = controlVolume[i];
         }
     }
 }

@@ -191,7 +191,6 @@ public class ControlCoins : SingletonInInspector<ControlCoins>, ISaveable
 
     private void SetAugmentCoin(float newCoin) {
         //limit to augmentCoins
-        print(_coins + " " + newCoin);
         _coins = (float)Math.Round(newCoin, 3);
 
         //upgrade level

@@ -14,6 +14,9 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
     [Header("Count different Slots")]
     [SerializeField] SlotMain[] allSlotsMain;
 
+    [Header("View audio")]
+    [SerializeField] AudioSource audioSource;
+
     Dictionary<TypeSlotMainBusiness, float> dataSlotInfoGeneration = new Dictionary<TypeSlotMainBusiness, float>();
     Dictionary<TypeSlotMainBusiness, int> dataSlotInfoLevelSlotMain = new Dictionary<TypeSlotMainBusiness, int>();
     int actualLevel = 0;
@@ -98,5 +101,7 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
         dataSlotInfoLevelSlotMain[typeSlotMainBusiness] = newLevel;
         Debug.Log(newLevel.ToString() + " " + typeSlotMainBusiness + " " + dataSlotInfoLevelSlotMain[typeSlotMainBusiness]);
         NewPassLevelSlot.Invoke(TypeGoal.Slot);
+
+        audioSource.Play();
     }
 }
