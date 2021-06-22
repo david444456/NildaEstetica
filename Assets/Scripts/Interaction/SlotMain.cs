@@ -18,6 +18,10 @@ namespace Est.Interact
 
         [SerializeField] int indexSlot = 1;
         [SerializeField] MeshFilter GOSlotGameObjectMesh = null;
+        [SerializeField] float _multiplicatorPastValueCostToSlotInformation = 0.1f;
+
+        private float m_lastValueCostUpgradeSlot = 0;
+        private int m_lastIndexCostUpgradeSlot = 0;
 
         //private var
 
@@ -114,15 +118,22 @@ namespace Est.Interact
             {
                 //gamemanager
                 //controlCoins.SetCoinGenerationPerSecond(controlCoins.WithChangeUnits_ReturnNumberConvertedToTheMainUnit(m_CostToUpgradeSlot, m_indexLevelStringToChangeUnit) * 0.1f);
-                CallControlSlotInformationPassInformation(controlCoins.WithDifUnits_ReturnNumberConvertedToTheMainUnit(m_CostToUpgradeSlot, m_indexLevelStringToChangeUnit) * 0.1f);
+                CallControlSlotInformationPassInformation(
+                    controlCoins.WithDifUnits_ReturnNumberConvertedToTheMainUnit(m_CostToUpgradeSlot, m_indexLevelStringToChangeUnit) * _multiplicatorPastValueCostToSlotInformation,
+                    controlCoins.WithDifUnits_ReturnNumberConvertedToTheMainUnit(m_lastValueCostUpgradeSlot, m_lastIndexCostUpgradeSlot) * _multiplicatorPastValueCostToSlotInformation
+                    );
 
-                //upgrade coin
-                //controlCoins.BuyAThing_CompateWithUnits(m_CostToUpgradeSlot, m_indexLevelStringToChangeUnit);
+                //upgrade coin, save data
+                m_lastValueCostUpgradeSlot = CostToUpgradeSlot;
+                m_lastIndexCostUpgradeSlot = m_indexLevelStringToChangeUnit;
+
+                //augment cost
                 m_CostToUpgradeSlot = m_CostToUpgradeSlot * 2 * (int)slotInformation.StatLevel.multiplicatorLevels[m_actualLevel];
 
                 while (m_CostToUpgradeSlot > 1000)
                 {
                     m_CostToUpgradeSlot = (long)m_CostToUpgradeSlot / 1000;
+
                     m_indexLevelStringToChangeUnit++;
                 }
 
@@ -159,7 +170,10 @@ namespace Est.Interact
 
             //gamemanager
             //controlCoins.SetCoinGenerationPerSecond((int)slotInformation.StatLevel.multiplicatorLevels[m_actualLevel] * m_coinsPerSecond);
-            CallControlSlotInformationPassInformation((int)slotInformation.StatLevel.multiplicatorLevels[m_actualLevel] * m_coinsPerSecond);
+            CallControlSlotInformationPassInformation(
+                (int)slotInformation.StatLevel.multiplicatorLevels[m_actualLevel] * m_coinsPerSecond, 
+                controlCoins.WithDifUnits_ReturnNumberConvertedToTheMainUnit(m_lastValueCostUpgradeSlot, m_lastIndexCostUpgradeSlot)
+                    );
 
             //change value by upgrade
             UpgradeDataForThisSlot_DataForSlotInformation();
@@ -190,8 +204,8 @@ namespace Est.Interact
             m_indexLevelStringToChangeUnit = slotInformation.StatLevel.levelUnitUpgradeLevel;
         }
 
-        private void CallControlSlotInformationPassInformation(float newValue) =>
-            ControlSlotInformation.Instance.AugmentGenerationInTypeSlot(slotType.GetTypeSlot(), newValue);
+        private void CallControlSlotInformationPassInformation(float newValue, float oldCost) =>
+            ControlSlotInformation.Instance.AugmentGenerationInTypeSlot(slotType.GetTypeSlot(), newValue, oldCost);
 
         public object CaptureState()
         {

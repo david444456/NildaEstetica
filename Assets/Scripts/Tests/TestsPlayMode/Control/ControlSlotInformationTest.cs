@@ -52,7 +52,7 @@ namespace Tests
 
             var newTypeSlot = Est.Interact.TypeSlotMainBusiness.Esthetic;
 
-            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5);
+            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5, 0);
 
             yield return new WaitForEndOfFrame();
 
@@ -77,7 +77,7 @@ namespace Tests
             yield return new WaitForEndOfFrame();
 
 
-            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5);
+            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5, 0);
 
             yield return new WaitForEndOfFrame();
 
@@ -100,7 +100,7 @@ namespace Tests
             yield return new WaitForEndOfFrame();
 
             Debug.Log(controlCoins.CoinGenerationSecond);
-            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5);
+            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5, 0);
 
             yield return new WaitForEndOfFrame();
 

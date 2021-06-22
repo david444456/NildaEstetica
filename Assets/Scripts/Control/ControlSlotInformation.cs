@@ -70,10 +70,11 @@ public class ControlSlotInformation : SingletonInInspector<ControlSlotInformatio
         }
     }
 
-    public void AugmentGenerationInTypeSlot(TypeSlotMainBusiness typeSlotMain, float newValue) {
-        float oldValueCoin = ControlCoins.Instance.CoinGenerationSecond - dataSlotInfoGeneration[typeSlotMain];
-        dataSlotInfoGeneration[typeSlotMain] = newValue;
-        ControlCoins.Instance.ChangeCoinGenerationPerSecond(oldValueCoin + dataSlotInfoGeneration[typeSlotMain]);
+    public void AugmentGenerationInTypeSlot(TypeSlotMainBusiness typeSlotMain, float newValue, float lastValueCost) {
+        float oldValueCoin = ControlCoins.Instance.CoinGenerationSecond - lastValueCost;
+        dataSlotInfoGeneration[typeSlotMain] += (newValue - lastValueCost);
+        print("Gener: " + newValue + " old: " + oldValueCoin + " " + dataSlotInfoGeneration[typeSlotMain]);
+        ControlCoins.Instance.ChangeCoinGenerationPerSecond(oldValueCoin + newValue);
     }
 
     public float GetGenerationByIndex(TypeSlotMainBusiness typeSlotMain) =>

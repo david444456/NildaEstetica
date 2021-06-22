@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Est.Data;
-
+using Est.Mobile.Save;
 
 namespace Est.Interact
 {
     [RequireComponent(typeof(SlotLocked))]
-    public class SlotAdvertising : MonoBehaviour, ISlot
+    public class SlotAdvertising : MonoBehaviour, ISlot, ISaveable
     {
         [SerializeField] int multiplicatorAdvertising = 2;
 
@@ -42,6 +42,8 @@ namespace Est.Interact
 
             //ui
             slotControlUI.changeTextUpgradeCoin(slotLocked.costToUnlockedSlot, controlCoins.GetStringValueUnitWithIndex(slotLocked.indexActualLevelUnit));
+            if(!IsSlotLocked) DesactiveUIGOAdTextInfo();
+
 
             //unlocked
             slotLocked.OnUnlocked += UnlockedSlot;
@@ -60,12 +62,31 @@ namespace Est.Interact
             }
         }
 
-        private void UnlockedSlot() {
+        private void UnlockedSlot()
+        {
             controlCoins.MultiplyCoinGenerationPerSecond(controlCoins.CoinGenerationSecond * multiplicatorAdvertising);
             IsSlotLocked = false;
 
             //ui
+            DesactiveUIGOAdTextInfo();
+        }
+
+        private void DesactiveUIGOAdTextInfo()
+        {
             GOAdvertisingUIText.SetActive(false);
+        }
+
+        public object CaptureState()
+        {
+            int value = 0;
+            if (IsSlotLocked) value = 1;
+            return value;
+        }
+
+        public void RestoreState(object state)
+        {
+            if ((int)state == 0) IsSlotLocked = false;
+            print(IsSlotLocked);
         }
     }
 }
