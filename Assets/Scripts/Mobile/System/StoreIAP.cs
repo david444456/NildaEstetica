@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoreIAP : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+namespace Est.Mobile {
+    public class StoreIAP : MonoBehaviour
     {
-        
-    }
+        ControlCoinPremium coinPremium;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+            coinPremium = FindObjectOfType<ControlCoinPremium>();
+        }
+
+        public void AugmentPreCoin(int augmentCoin) {
+            coinPremium.SetAugmentPremiumCoin(augmentCoin);
+            print("Augment premium coin: " + augmentCoin);
+        }
+
     }
 }

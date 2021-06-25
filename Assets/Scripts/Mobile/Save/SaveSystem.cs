@@ -11,14 +11,23 @@ namespace Est.Mobile.Save
     {
         [SerializeField] string _defaultStringSave = "default";
 
+        bool afterStart = false;
+
         private void Awake()
         {
             Load(_defaultStringSave);
         }
 
+        private void Start()
+        {
+            afterStart = true;
+        }
+
 #if UNITY_ANDROID
         private void OnApplicationPause(bool pause)
         {
+            if (!afterStart) return;
+            print("Quit 2 ");
             Save(_defaultStringSave);
         }
 #endif
@@ -26,6 +35,7 @@ namespace Est.Mobile.Save
 #if UNITY_EDITOR
         private void OnApplicationQuit()
         {
+            print("Quit");
             Save(_defaultStringSave);
         }
 #endif

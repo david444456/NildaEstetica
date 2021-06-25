@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Est.Mobile.Save;
 
 namespace Est.Mobile
 {
     //this control everything in mobile,( ads ),
-    public class AdsManager : MonoBehaviour
+    public class AdsManager : MonoBehaviour, ISaveable
     {
         public Action VideoIsComplete = delegate { };
 
@@ -20,6 +21,7 @@ namespace Est.Mobile
         private PlayerSessionView playerSession;
         private RewardTimeGeneration rewardTimeGeneration;
         private ADSRewardedVideo aDSRewardedVideo;
+        [SerializeField] private bool adsRemove = false;
 
         void Start()
         {
@@ -39,6 +41,10 @@ namespace Est.Mobile
             aDSRewardedVideo.ICompleteVideo -= CompleteVideoReward;
         }
 
+        public bool GetRemoveAdsBool() => adsRemove;
+
+        public void SetAdsBoolTrue() => adsRemove = true;
+
         public void InstantiateVideoReward() {
 
             aDSRewardedVideo.ShowVideo();
@@ -55,6 +61,16 @@ namespace Est.Mobile
             {
                 rewardTimeGeneration.rewardCoinsGeneration((int)Mathf.Round(playerSession.GetTimeHour())); //
             }
+        }
+
+        public object CaptureState()
+        {
+            return adsRemove;
+        }
+
+        public void RestoreState(object state)
+        {
+            adsRemove = (bool)state;
         }
     }
 }

@@ -29,10 +29,15 @@ namespace Est.Interact
         private void Awake()
         {
             //gameManager
-            controlCoins = ControlCoins.Instance;
+
             slotLocked = GetComponent<SlotLocked>();
             //event
             slotLocked.OnUnlocked += UnlockedSlot;
+        }
+
+        private void Start()
+        {
+            controlCoins = ControlCoins.Instance;
         }
 
         private void LateUpdate()
