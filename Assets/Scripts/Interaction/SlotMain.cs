@@ -230,9 +230,15 @@ namespace Est.Interact
 
             if (save[4] == 0) {
                 IsSlotLocked = false;
-                GetComponent<SlotLocked>().ActivatedUnlockEvent();
+                StartCoroutine(StartActiveUnlockEventWaitOneFrame());
                 GetComponent<SlotControlUI>().changeBackGroundColorLocked();
             }
+        }
+
+        public IEnumerator StartActiveUnlockEventWaitOneFrame()
+        {
+            yield return new WaitForEndOfFrame();
+            GetComponent<SlotLocked>().ActivatedUnlockEvent();
         }
     }
 

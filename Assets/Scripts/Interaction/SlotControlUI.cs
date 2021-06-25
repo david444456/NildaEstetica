@@ -26,12 +26,11 @@ namespace Est.Interact
         private bool colorIsGreen = false;
         private bool verifySlotLocked = false;
 
-        void Start()
+        private void Awake()
         {
             //gameManager
             controlCoins = ControlCoins.Instance;
             slotLocked = GetComponent<SlotLocked>();
-
             //event
             slotLocked.OnUnlocked += UnlockedSlot;
         }

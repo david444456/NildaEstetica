@@ -18,5 +18,6 @@ namespace Est.Interact
         Massages,
         GYM,
         Esthetic,
+        Nutritionist,
     }
 }

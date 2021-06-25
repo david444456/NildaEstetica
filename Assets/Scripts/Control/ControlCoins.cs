@@ -46,7 +46,8 @@ public class ControlCoins : SingletonInInspector<ControlCoins>, ISaveable
         if (CoinGenerationSecond == 0) SetCoinGenerationPerSecond(1);
 
         ///ui
-        ControlPrincipalUI.Instance.changeTextCoins(_coins, unitsStringValue[actualLevelOfCoinUnits]);
+        controlUI.changeTextCoins(_coins, unitsStringValue[actualLevelOfCoinUnits]);
+        controlUI.changeTextGenerationCoins(_coinGenerationPerSecond, unitsStringValue[actualLevelOfCoinUnits]);
     }
 
     private void Update()
@@ -113,8 +114,8 @@ public class ControlCoins : SingletonInInspector<ControlCoins>, ISaveable
         {
             _coinGenerationPerSecond = value;
             _coinGenerationPerSecond = (float)Math.Round(_coinGenerationPerSecond, 3);
-            if (controlUI == null) print("Est");
-            controlUI.changeTextGenerationCoins(_coinGenerationPerSecond, unitsStringValue[actualLevelOfCoinUnits]);
+            if (controlUI == null) controlUI = GetComponent<ControlPrincipalUI>();
+            if(controlUI != null) controlUI.changeTextGenerationCoins(_coinGenerationPerSecond, unitsStringValue[actualLevelOfCoinUnits]);
         }
 
     }

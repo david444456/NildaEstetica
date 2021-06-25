@@ -62,6 +62,7 @@ namespace Est.Interact
         }
 
         public void ActivatedUnlockEvent() {
+            print("Llamando");
             OnUnlocked();
         }
 

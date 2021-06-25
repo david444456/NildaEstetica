@@ -86,7 +86,6 @@ namespace Est.Interact
         public void RestoreState(object state)
         {
             if ((int)state == 0) IsSlotLocked = false;
-            print(IsSlotLocked);
         }
     }
 }

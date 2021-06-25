@@ -21,9 +21,10 @@ namespace Est.AI
         private void Start()
         {
             destinationData.directionAICharacter = transform.position;
+
             if (transformCorrectAnimation != null)
             {
-                destinationData.positionSlotAnimationWorkCorrectly = transformCorrectAnimation.localPosition;
+                destinationData.positionSlotAnimationWorkCorrectly = transformCorrectAnimation.position;
                 destinationData.rotationSlotAnimationWorkCorrectly = transformCorrectAnimation.localRotation;
             }
 
