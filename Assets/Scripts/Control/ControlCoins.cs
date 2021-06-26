@@ -207,7 +207,9 @@ public class ControlCoins : SingletonInInspector<ControlCoins>, ISaveable
 
             //call update text generation
             _coinGenerationPerSecond = notBrokeGameWithChangeUnitInGenerationPerSecond(3);
-            controlUI.changeTextGenerationCoins(_coinGenerationPerSecond, unitsStringValue[actualLevelOfCoinUnits]);//generation
+
+            if (controlUI == null) controlUI = GetComponent<ControlPrincipalUI>();
+            if (controlUI != null) controlUI.changeTextGenerationCoins(_coinGenerationPerSecond, unitsStringValue[actualLevelOfCoinUnits]);//generation
         }
     }
 

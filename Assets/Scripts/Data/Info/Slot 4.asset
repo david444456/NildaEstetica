@@ -26,9 +26,9 @@ MonoBehaviour:
     - 30
     gameObjectsByLevel:
     - {fileID: -2432090755550338912, guid: 706573356a51a874ca7651a8967d09de, type: 3}
-    - {fileID: -2432090755550338912, guid: 706573356a51a874ca7651a8967d09de, type: 3}
     - {fileID: -2432090755550338912, guid: 02816d62f78be7940969d46d6217002b, type: 3}
     - {fileID: -2432090755550338912, guid: dad47e0ce7024ea499cafbdeebbd33c2, type: 3}
+    - {fileID: -2432090755550338912, guid: 2d0e4bf26186c2346acbec44b67699f2, type: 3}
     - {fileID: -2432090755550338912, guid: 2d0e4bf26186c2346acbec44b67699f2, type: 3}
   textInformation: Massages
   spriteBossSlot: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
