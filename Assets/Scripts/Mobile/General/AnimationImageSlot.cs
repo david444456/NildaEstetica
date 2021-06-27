@@ -23,7 +23,9 @@ namespace Est.Mobile
 
         private void StartAnimationScale(int value, TypeSlotMainBusiness typeSlot) {
             imageBackGroundSlot.GetComponent<RectTransform>().DOScale(new Vector3(0.02f, 0.02f, 0.01f), timeAnimation/2);
-            imageBackGroundSlot.GetComponent<RectTransform>().DOScale(new Vector3(0.01f, 0.01f, 0.01f), timeAnimation/2).SetDelay(timeAnimation/2);
+            imageBackGroundSlot.GetComponent<RectTransform>().DOScale(new Vector3(0.01f, 0.01f, 0.01f), timeAnimation/2).SetDelay(timeAnimation
+                
+                /2);
         }
     }
 }
