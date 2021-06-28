@@ -38,7 +38,7 @@ namespace Est.Mobile
 
         private void OnDisable()
         {
-            aDSRewardedVideo.ICompleteVideo -= CompleteVideoReward;
+            if(aDSRewardedVideo != null) aDSRewardedVideo.ICompleteVideo -= CompleteVideoReward;
         }
 
         public bool GetRemoveAdsBool() => adsRemove;

@@ -77,7 +77,7 @@ namespace Tests
             yield return new WaitForEndOfFrame();
 
 
-            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5, 0);
+            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 4, 0);
 
             yield return new WaitForEndOfFrame();
 
@@ -95,17 +95,17 @@ namespace Tests
 
             yield return new WaitForEndOfFrame();
 
-            var newTypeSlot = Est.Interact.TypeSlotMainBusiness.Esthetic;
+            var newTypeSlot = Est.Interact.TypeSlotMainBusiness.Hairdressing;
 
             yield return new WaitForEndOfFrame();
 
             Debug.Log(controlCoins.CoinGenerationSecond);
-            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 5, 0);
+            slotInformation.AugmentGenerationInTypeSlot(newTypeSlot, 4, 0);
 
             yield return new WaitForEndOfFrame();
 
-            Assert.AreEqual(8, controlCoins.CoinGenerationSecond,
-                "The value is " + 8 + ", but the real value is: " + controlCoins.CoinGenerationSecond);
+            Assert.AreEqual(5, controlCoins.CoinGenerationSecond,
+                "The value is " + 5 + ", but the real value is: " + controlCoins.CoinGenerationSecond);
         }
 
         [UnityTest]
@@ -121,16 +121,17 @@ namespace Tests
 
             yield return new WaitForEndOfFrame();
 
-            controlCoins.CoinsSinceLastSessionInMinutes(600000); //10k
+            controlCoins.AugmentCoinRewardCoin(10000); //10k
 
             Debug.Log(controlCoins.CoinGenerationSecond);
             SlotMain slot = FindObjectOfType<SlotMain>();
+
             slot.OnTouchThisObject();
 
             yield return new WaitForEndOfFrame();
 
-            Assert.AreEqual(0.103f, controlCoins.CoinGenerationSecond, //0.003 for initial value slot, and 0.1 by upgrade that slot.
-                "The value is " + 0.103f + ", but the real value is: " + controlCoins.CoinGenerationSecond);
+            Assert.AreEqual(0.101f, controlCoins.CoinGenerationSecond, //0.001 for initial value slot, and 0.1 by upgrade that slot.
+                "The value is " + 0.101f + ", but the real value is: " + controlCoins.CoinGenerationSecond);
         }
 
         [UnityTest]

@@ -10,13 +10,24 @@ namespace Est.Mobile
         // Start is called before the first frame update
         void Start()
         {
-            PostToDataBases();
+            RetrieveFromDataBase();
         }
 
         private void PostToDataBases() {
-            User user = new User("David", 5);
-            RestClient.Post("https://nilda-esthetic-default-rtdb.firebaseio.com/.json", user);
+            User user = new User("Hola", 5);
+            RestClient.Put("https://nilda-esthetic-default-rtdb.firebaseio.com/" + "Hola" +".json", user);
             print("Publish ");
+        }
+
+        private void RetrieveFromDataBase() {
+            User user = new User("Hola", 0);
+            RestClient.Get<User>("https://nilda-esthetic-default-rtdb.firebaseio.com/" + "Hola" + ".json").Then( response => 
+            
+            {
+                user = response;
+                print(user.userScore);
+            }   
+                );
         }
     }
 

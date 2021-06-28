@@ -321,7 +321,7 @@ namespace Tests
 
             yield return new WaitForEndOfFrame();
 
-            Assert.AreEqual(3 , controlCoins.CoinGenerationSecond, "The coinGeneration per second was: " + controlCoins.CoinGenerationSecond);
+            Assert.AreEqual(1 , controlCoins.CoinGenerationSecond, "The coinGeneration per second was: " + controlCoins.CoinGenerationSecond);
         }
 
         [UnityTest]
@@ -399,8 +399,8 @@ namespace Tests
         [UnityTest]
         public IEnumerator SlotMainTest_OnTouchThisObject_UpgradeSlot_SetGenerationPerSecond()
         {
-            controlCoins.SetCoinGenerationPerSecond(1);
-            controlCoins.CoinsSinceLastSessionInMinutes(600000); //10k
+            //controlCoins.SetCoinGenerationPerSecond(1);
+            controlCoins.AugmentCoinRewardCoin(10000); //10k
 
             //prepare
 
@@ -416,7 +416,7 @@ namespace Tests
 
             yield return new WaitForEndOfFrame();
 
-            Assert.AreEqual(3.101f, controlCoins.CoinGenerationSecond);
+            Assert.AreEqual(0.101f, controlCoins.CoinGenerationSecond);
         }
 
         [UnityTest]

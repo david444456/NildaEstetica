@@ -59,7 +59,7 @@ namespace Tests
             yield return new WaitForEndOfFrame();
 
             //asert/act
-            Assert.AreEqual(controlCoins.Coins, 1f
+            Assert.AreEqual(2f, controlCoins.Coins
                 , "Coins actual is: " + controlCoins.Coins + ", and compare: " + 1f);
         }
     }

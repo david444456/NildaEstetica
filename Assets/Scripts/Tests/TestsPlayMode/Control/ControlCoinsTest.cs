@@ -59,7 +59,7 @@ namespace Tests
         public IEnumerator ChangeCoinsClick_TheSameCoins()
         {
             //prepare
-            controlCoins.SetCoinGenerationPerSecond(1);
+            //controlCoins.SetCoinGenerationPerSecond(1);
 
             yield return new WaitForEndOfFrame(); //start
 
@@ -95,7 +95,7 @@ namespace Tests
         public IEnumerator ChangeGenerationCoinsSet_TheSame()
         {
             //prepare
-            controlCoins.SetCoinGenerationPerSecond(1);
+            //controlCoins.SetCoinGenerationPerSecond(1);
 
             yield return new WaitForEndOfFrame(); //start
 
@@ -119,7 +119,7 @@ namespace Tests
             yield return new WaitForEndOfFrame();
 
             //asert/act
-            Assert.AreEqual(controlCoins.CoinGenerationSecond, 4.4f
+            Assert.AreEqual(controlCoins.CoinGenerationSecond, 6.6f
                 , "Coins actual is: " + controlCoins.CoinGenerationSecond + ", and compare: " + 4.4);
         }
 
