@@ -29,7 +29,7 @@ namespace Est.Mobile
 
         public float GetTimeMinute()
         {
-            return (float)timeSpan.TotalSeconds;
+            return (float)timeSpan.TotalMinutes;
         }
 
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace Tests
+namespace Tests.Mobile
 {
     public class ViewGoalsTest : MonoBehaviour
     {

@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace Tests
+namespace Tests.Control
 {
     public class ControlPrincipalUITest : MonoBehaviour
     {

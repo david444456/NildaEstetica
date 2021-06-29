@@ -6,7 +6,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests
+namespace Tests.Mobile
 {
     public class ViewControlCycleGoalsTest : MonoBehaviour
     {
