@@ -284,6 +284,35 @@ namespace Tests
         }
 
         [UnityTest]
+        public IEnumerator SlotControlUITest_ActiveProfGO_Unlock()
+        {
+            //prepare
+            var Slot = Resources.Load("Prefab/Slot") as GameObject;
+            var SlotAd = GameObject.Instantiate(Slot, new Vector3(0, 0, 0), Quaternion.identity);
+
+            controlCoins.SetCoinGenerationPerSecond(1);
+            controlCoins.CoinsSinceLastSessionInMinutes(60000); //1k
+
+            SlotMain slotMain = FindObjectOfType<SlotMain>();
+            SlotControlUI slotControlUI = slotMain.GetComponent<SlotControlUI>();
+
+            yield return new WaitForEndOfFrame();
+
+            controlCoins.SetCoinGenerationPerSecond(1);
+            controlCoins.CoinsSinceLastSessionInMinutes(600000); //10M
+
+            //act
+            FindObjectOfType<ControlSlotInformation>().UpdateDataSlotMainAndTypeSlot();
+            slotMain.GetComponent<SlotLocked>().OnTouchThisObject();
+
+            yield return new WaitForEndOfFrame();
+
+            GameObject go = GameObject.Find("TranformProf");
+
+            Assert.IsTrue(go.activeSelf, "The active is: " + go.activeSelf);
+        }
+
+        [UnityTest]
         public IEnumerator SlotControlUITest_changeBackGroundAfterUnlocked_Update_CantBuy()
         {
             //prepare

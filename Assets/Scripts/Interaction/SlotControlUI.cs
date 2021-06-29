@@ -20,6 +20,9 @@ namespace Est.Interact
         [SerializeField] Color colorBackGroundCoinAfterUnlocked = Color.white;
         [SerializeField] MeshFilter GOSlotGameObjectMesh = null;
 
+        [Header("Professional")]
+        [SerializeField] GameObject gameObjectProfessional;
+
         private ControlCoins controlCoins;
         private SlotLocked slotLocked;
 
@@ -100,6 +103,7 @@ namespace Est.Interact
         {
             //change color
             boolSlotLocked = false;
+            if(gameObjectProfessional != null)gameObjectProfessional.SetActive(true);
             changeBackGroundAfterUnlocked();
         }
     }
