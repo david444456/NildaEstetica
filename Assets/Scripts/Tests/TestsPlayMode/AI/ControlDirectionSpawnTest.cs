@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using Est.AI;
 
-namespace Tests
+namespace Tests.AI
 {
     public class ControlDirectionSpawnTest
     {

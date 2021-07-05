@@ -11,7 +11,7 @@ namespace Tests.Mobile
     public class ViewControlCycleGoalsTest : MonoBehaviour
     {
         ViewControlCycleGoals view;
-        GameObject camera;
+        GameObject Maincamera;
         GameObject coreGO;
 
         [SetUp]
@@ -19,7 +19,7 @@ namespace Tests.Mobile
         {
             //camera by not crash
             var loadCamera = Resources.Load("Prefab/Core/Main Camera") as GameObject;
-            camera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
+            Maincamera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
 
 
             //prepare
@@ -33,7 +33,7 @@ namespace Tests.Mobile
         public void TearDown()
         {
             GameObject.Destroy(coreGO);
-            Destroy(camera);
+            Destroy(Maincamera);
         }
 
         [UnityTest]

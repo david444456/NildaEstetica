@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace Tests
+namespace Tests.Interaction
 {
     public class SlotMainTest : MonoBehaviour
     {

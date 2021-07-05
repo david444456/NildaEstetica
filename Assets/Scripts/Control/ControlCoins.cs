@@ -7,9 +7,10 @@ using Est.Data;
 using Est.Mobile;
 using System;
 using Est.Mobile.Save;
+using Est.Control;
 
 //gamemanager control coins
-public class ControlCoins : SingletonInInspector<ControlCoins>, ISaveable
+public class ControlCoins : SingletonInInspector<ControlCoins>, IControlCoin, ISaveable
 {
     public static event Action<int> PassLevelCoin = delegate { };
 
@@ -230,7 +231,7 @@ public class ControlCoins : SingletonInInspector<ControlCoins>, ISaveable
         save[1] = ActualLevelUnits;
         save[2] = CoinGenerationSecond;
 
-        print((int)save[1] + " " + save[2] + " " + save[0]);
+//        print((int)save[1] + " " + save[2] + " " + save[0]);
         //save[3] = m_actualLevel;
 
         return save;

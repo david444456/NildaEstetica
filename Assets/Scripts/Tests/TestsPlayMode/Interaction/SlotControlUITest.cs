@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 using Est.Interact;
 using UnityEngine.UI;
 
-namespace Tests
+namespace Tests.Interaction
 {
     public class SlotControlUITest : MonoBehaviour
     {

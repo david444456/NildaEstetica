@@ -5,12 +5,11 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests
+namespace Tests.AI
 {
     public class ObjectPoolingTest : MonoBehaviour
     {
         GameObject coreGO;
-        GameObject camera;
 
         [SetUp]
         public void SetUp()
@@ -20,7 +19,7 @@ namespace Tests
 
             //camera by not crash
             var loadCamera = Resources.Load("Prefab/Core/Main Camera") as GameObject;
-            camera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
+            GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
         }
 
         [TearDown]

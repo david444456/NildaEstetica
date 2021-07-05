@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 namespace Est.Mobile
 {
-    public class View : MonoBehaviour
+    public class View : MonoBehaviour, IRewardUITime
     {
         [SerializeField] Button buttonRewardCar;
 
         [Header("Car reward")]
         [SerializeField] GameObject MenuRewardCar = null;
         [SerializeField] Text textRewardCar = null;
+
+        [Header("UI Reward Time Generation")]
+        [SerializeField] GameObject gameObjectRewardPoster = null;
+        [SerializeField] Text textCoinsReward = null;
 
         MediatorMobile mediator;
 
@@ -34,5 +38,8 @@ namespace Est.Mobile
 
         }
 
+        public void ChangeActiveStateRewardPoster(bool newValue) => gameObjectRewardPoster.SetActive(newValue);
+
+        public void ChangeTextCoinsRewardPosterTime(string newText) => textCoinsReward.text = newText;
     }
 }

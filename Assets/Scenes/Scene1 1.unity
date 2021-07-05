@@ -8925,7 +8925,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 963194225}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4244673162137829674, guid: 4da54c6fe94664b4ca06269159b1c133, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4da54c6fe94664b4ca06269159b1c133, type: 3}
 --- !u!23 &4275043827504040757
 MeshRenderer:

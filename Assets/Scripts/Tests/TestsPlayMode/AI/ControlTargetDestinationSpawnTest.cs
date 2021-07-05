@@ -6,7 +6,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests
+namespace Tests.AI
 {
     public class ControlTargetDestinationSpawnTest
     {

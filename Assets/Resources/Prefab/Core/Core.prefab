@@ -1160,6 +1160,8 @@ MonoBehaviour:
   buttonRewardCar: {fileID: 4244673162137829671}
   MenuRewardCar: {fileID: 6301771204963076094}
   textRewardCar: {fileID: 220868793566177283}
+  gameObjectRewardPoster: {fileID: 4244673160699986221}
+  textCoinsReward: {fileID: 4244673161508939616}
 --- !u!114 &1813642709455677584
 MonoBehaviour:
   m_ObjectHideFlags: 0

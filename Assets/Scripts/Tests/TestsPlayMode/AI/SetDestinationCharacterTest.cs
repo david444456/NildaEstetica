@@ -5,14 +5,14 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests
+namespace Tests.AI
 {
     public class SetDestinationCharacterTest : MonoBehaviour
     {
         GameObject coreGO;
         GameObject objPool;
         GameObject objPool2;
-        GameObject camera;
+        GameObject maincamera;
 
         [SetUp]
         public void SetUp()
@@ -28,7 +28,7 @@ namespace Tests
 
             //camera by not crash
             var loadCamera = Resources.Load("Prefab/Core/Main Camera") as GameObject;
-            camera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
+            maincamera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
         }
 
         [TearDown]
@@ -37,7 +37,7 @@ namespace Tests
             Destroy(coreGO);
             Destroy(objPool);
             Destroy(objPool2);
-            Destroy(camera);
+            Destroy(maincamera);
         }
 
         [UnityTest]

@@ -13,6 +13,7 @@ namespace Est.Mobile
         public Action VideoIsComplete = delegate { };
 
         [SerializeField] int timeForSaveRecompenseHours = 24;
+        [SerializeField] int timeMinimunInMinutesByReward = 0;
 
         [Header("Ads")]
         [SerializeField] string placementNormalVideoID = "video"; //ID del anuncio
@@ -57,7 +58,7 @@ namespace Est.Mobile
 
         IEnumerator RewardVerification() {
             yield return new WaitForSeconds(1/2);
-            if (playerSession.GetTimeMinute() > 0 && playerSession.GetTimeHour() >= timeForSaveRecompenseHours)
+            if (playerSession.GetTimeMinute() > timeMinimunInMinutesByReward && playerSession.GetTimeHour() >= timeForSaveRecompenseHours)
             {
                 rewardTimeGeneration.rewardCoinsGeneration((int)Mathf.Round(playerSession.GetTimeHour())); //
             }
