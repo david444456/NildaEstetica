@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Est.Control
 {
     public class SwipeDetection : MonoBehaviour
     {
+        [SerializeField] Text textTestVelocity;
         [Header("Limits")]
         [SerializeField] private float maxPositionVertical = 5;
         [SerializeField] private float maxPositionHorizontal = 5;
@@ -64,13 +66,20 @@ namespace Est.Control
             float dirX = horizontal;
             float dirY = vertical;
 
+
             //limits
             if (LimitMovementCamera(horizontal, cameraMain.transform.position.x, -maxPositionHorizontal, maxPositionHorizontal)) dirX = 0;
             if (LimitMovementCamera(vertical, cameraMain.transform.position.z, -maxPositionVertical, maxPositionVertical)) dirY = 0;
 
+            textTestVelocity.text = dirX + " y: " + dirY;
+
             //move
-            cameraMain.transform.position = Vector3.MoveTowards(cameraMain.transform.position,
-                new Vector3(cameraMain.transform.position.x + dirX, cameraMain.transform.position.y, cameraMain.transform.position.z + dirY), speedMoveCamera);
+            cameraMain.transform.position = Vector3.MoveTowards(
+                cameraMain.transform.position,
+                new Vector3(cameraMain.transform.position.x + dirX, 
+                            cameraMain.transform.position.y,
+                            cameraMain.transform.position.z + dirY), 
+                speedMoveCamera * Time.deltaTime);
         }
 
         private bool LimitMovementCamera(int direction, float cameraPosition_X, float min, float max) {

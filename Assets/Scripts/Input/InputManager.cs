@@ -47,11 +47,11 @@ namespace Est.Control
                     {
                         if (Mathf.Abs(x) >= Mathf.Abs(y))
                         {
-                            horizontal = x > 0 ? 1 : -1;
+                            horizontal = x > 0 ? -1 : 1;
                         }
                         else
                         {
-                            vertical = y > 0 ? 1 : -1;
+                            vertical = y > 0 ? -1 : 1;
                         }
                     }
                 }

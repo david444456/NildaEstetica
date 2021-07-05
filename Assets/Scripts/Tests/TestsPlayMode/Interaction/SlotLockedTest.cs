@@ -12,7 +12,7 @@ namespace Tests.Interaction
 
         ControlCoins controlCoins;
         ControlPrincipalUI controlPrincipalUI;
-        GameObject camera;
+        GameObject MainCamera;
 
         GameObject coreGO;
 
@@ -21,7 +21,7 @@ namespace Tests.Interaction
         {
             //camera by not crash
             var loadCamera = Resources.Load("Prefab/Core/Main Camera") as GameObject;
-            camera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
+            MainCamera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
 
 
             //prepare
