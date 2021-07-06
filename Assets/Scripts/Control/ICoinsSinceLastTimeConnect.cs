@@ -1,7 +1,7 @@
 
 namespace Est.Control
 {
-    public interface IControlCoin
+    public interface ICoinsSinceLastTimeConnect
     {
         void CoinsSinceLastSessionInMinutes(float TimeLastQuitGame);
     }

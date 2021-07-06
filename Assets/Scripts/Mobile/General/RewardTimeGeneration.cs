@@ -11,7 +11,7 @@ namespace Est.Mobile
     {
         [SerializeField] int timeMinimunQuitGame = 20;
 
-        private IControlCoin controlCoins;
+        private ICoinsSinceLastTimeConnect controlCoins;
         private IRewardUITime rewardView;
         private int timeLastQuitGame = 0;
         private int rewardByBeingAFK = 0;
@@ -29,7 +29,7 @@ namespace Est.Mobile
             GetComponent<AdsManager>().VideoIsComplete += ClaimRewardVideoGeneration;
         }
 
-        public void ChangeControlCoin(IControlCoin newControlCoin) => controlCoins = newControlCoin;
+        public void ChangeControlCoin(ICoinsSinceLastTimeConnect newControlCoin) => controlCoins = newControlCoin;
 
         public void ChangeRewardUIView(IRewardUITime newRewardUITime) => rewardView = newRewardUITime;
 

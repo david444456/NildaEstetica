@@ -39,7 +39,7 @@ namespace Tests.Mobile
         [UnityTest]
         public IEnumerator RewardTimeGeneration_ClaimRewardVideoGeneration_OneCall()
         {
-            var ICoin = Substitute.For<IControlCoin>();
+            var ICoin = Substitute.For<ICoinsSinceLastTimeConnect>();
             var IReward = Substitute.For<IRewardUITime>();
 
             RewardTimeGeneration rewardTime = FindObjectOfType<RewardTimeGeneration>();
@@ -59,7 +59,7 @@ namespace Tests.Mobile
         [UnityTest]
         public IEnumerator RewardTimeGeneration_ClaimRewardVideoGeneration_RealValue()
         {
-            var ICoin = Substitute.For<IControlCoin>();
+            var ICoin = Substitute.For<ICoinsSinceLastTimeConnect>();
 
             RewardTimeGeneration rewardTime = FindObjectOfType<RewardTimeGeneration>();
             rewardTime.ChangeControlCoin(ICoin);
@@ -78,7 +78,7 @@ namespace Tests.Mobile
         [UnityTest]
         public IEnumerator RewardTimeGeneration_ClaimRewardNormalGeneration_OneCall()
         {
-            var ICoin = Substitute.For<IControlCoin>();
+            var ICoin = Substitute.For<ICoinsSinceLastTimeConnect>();
             var IReward = Substitute.For<IRewardUITime>();
 
             RewardTimeGeneration rewardTime = FindObjectOfType<RewardTimeGeneration>();
@@ -98,7 +98,7 @@ namespace Tests.Mobile
         [UnityTest]
         public IEnumerator RewardTimeGeneration_ClaimRewardNormalGeneration_RealValue()
         {
-            var ICoin = Substitute.For<IControlCoin>();
+            var ICoin = Substitute.For<ICoinsSinceLastTimeConnect>();
 
 
             RewardTimeGeneration rewardTime = FindObjectOfType<RewardTimeGeneration>();
