@@ -11,20 +11,27 @@ namespace Est.Mobile
         private float m_lastRewardCoin = 0;
         private int m_lastIndexCoinReward = 0;
 
+        IAugmentCoin augmentCoin;
+        IReturnConvertNumber convertNumber;
+
         void Start()
         {
-
+            augmentCoin = ControlCoins.Instance;
+            convertNumber = ControlCoins.Instance;
         }
 
+        public void ChangeAugmentCoin(IAugmentCoin augment) => augmentCoin = augment;
+
+        public void ChangeConvertNumber(IReturnConvertNumber convert) => convertNumber = convert;
+
         public void NewRewardCar() {
-            float rewardConvert = ControlCoins.Instance.WithDifUnits_ReturnNumberConvertedToTheMainUnit(m_lastRewardCoin, m_lastIndexCoinReward);
-            ControlCoins.Instance.AugmentCoinRewardCoin(m_lastRewardCoin);
+            float rewardConvert = convertNumber.WithDifUnits_ReturnNumberConvertedToTheMainUnit(m_lastRewardCoin, m_lastIndexCoinReward);
+            augmentCoin.AugmentCoinRewardCoin(rewardConvert);
         }
 
         public void NewRewardCycleGoal(float coinToReward, int levelCoinToReward) {
-            float rewardConvert = ControlCoins.Instance.WithDifUnits_ReturnNumberConvertedToTheMainUnit(coinToReward, levelCoinToReward);
-            print(rewardConvert);
-            ControlCoins.Instance.AugmentCoinRewardCoin(rewardConvert);
+            float rewardConvert = convertNumber.WithDifUnits_ReturnNumberConvertedToTheMainUnit(coinToReward, levelCoinToReward);
+            augmentCoin.AugmentCoinRewardCoin(rewardConvert);
         }
 
         public float GetNewRewardCar() {

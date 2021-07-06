@@ -10,7 +10,7 @@ using Est.Mobile.Save;
 using Est.Control;
 
 //gamemanager control coins
-public class ControlCoins : SingletonInInspector<ControlCoins>, ICoinsSinceLastTimeConnect, ISaveable, IAugmentCoin
+public class ControlCoins : SingletonInInspector<ControlCoins>, ICoinsSinceLastTimeConnect, ISaveable, IAugmentCoin, IReturnConvertNumber
 {
     public static event Action<int> PassLevelCoin = delegate { };
 
