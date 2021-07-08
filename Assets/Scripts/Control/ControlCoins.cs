@@ -143,6 +143,14 @@ public class ControlCoins : SingletonInInspector<ControlCoins>, ICoinsSinceLastT
         get => actualLevelOfCoinUnits;
     }
 
+    /// <summary>
+    /// Principal level (pass to string) coin in the game.
+    /// </summary>
+    public String ActualLevelUnitsString
+    {
+        get => unitsStringValue[actualLevelOfCoinUnits];
+    }
+
     public void AugmentCoinRewardCoin(float newValue) => SetAugmentCoin(_coins+newValue);
 
     /// <summary>

@@ -56,17 +56,19 @@ namespace Tests.Mobile
             yield return new WaitForEndOfFrame();
 
             store.ChangeControlCoin(augmentCoin);
-            store.TryToBuyPremiumCoin(5);
+            store.TryToBuyPremiumCoin(0);
 
             yield return new WaitForEndOfFrame();
 
-            augmentCoin.Received(0).AugmentCoinRewardCoin(Arg.Any<int>());
+            augmentCoin.Received(0).AugmentCoinRewardCoin(Arg.Any<float>());
         }
 
         [UnityTest]
         public IEnumerator StorePremiumTest_TryToBuy_EnoughMoney()
         {
             var augmentCoin = Substitute.For<IAugmentCoin>();
+            var premium = Substitute.For<ISetControlPremiumCoin>();
+            var viewStore = Substitute.For<IChangeTextCoinsToBuy>();
 
             yield return new WaitForEndOfFrame();
 
@@ -76,10 +78,36 @@ namespace Tests.Mobile
             yield return new WaitForEndOfFrame();
 
             StorePremiumCoin store = FindObjectOfType<StorePremiumCoin>();
+
+            store.ChangeSetControlPremiumCoin(premium);
+            store.ChangeViewStoreInterface(viewStore);
             store.ChangeControlCoin(augmentCoin);
-            store.TryToBuyPremiumCoin(5);
+            store.TryToBuyPremiumCoin(0);
 
             augmentCoin.Received(1).AugmentCoinRewardCoin(Arg.Any<float>());
+            premium.Received(1).SetAugmentPremiumCoin(Arg.Any<int>());
+            viewStore.Received(4).ChangeTextCoinsToBuy(Arg.Any<int>(), Arg.Any<string>());
+            viewStore.Received(1).PlayAudioSourceBuy();
+        }
+
+        [UnityTest]
+        public IEnumerator StorePremiumTest_ActiveStore()
+        {
+            var viewStore = Substitute.For<IChangeTextCoinsToBuy>();
+
+            yield return new WaitForEndOfFrame();
+
+            FindObjectOfType<ControlCoinPremium>().SetAugmentPremiumCoin(10);
+
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+
+            StorePremiumCoin store = FindObjectOfType<StorePremiumCoin>();
+
+            store.ChangeViewStoreInterface(viewStore);
+            store.ActiveStore();
+
+            viewStore.Received(4).ChangeTextCoinsToBuy(Arg.Any<int>(), Arg.Any<string>());
         }
     }
 }

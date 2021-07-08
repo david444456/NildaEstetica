@@ -5,7 +5,7 @@ using Est.Control;
 
 namespace Est.Mobile
 {
-    public class ControlRewardCoin : MonoBehaviour
+    public class ControlRewardCoin : MonoBehaviour, IControlRewardCoin
     {
         [SerializeField] private float m_multiplicatorControlCoinReward = 0;
         private float m_lastRewardCoin = 0;

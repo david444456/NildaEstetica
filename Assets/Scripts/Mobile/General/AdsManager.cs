@@ -8,7 +8,7 @@ using Est.Mobile.Save;
 namespace Est.Mobile
 {
     //this control everything in mobile,( ads ),
-    public class AdsManager : MonoBehaviour, ISaveable
+    public class AdsManager : MonoBehaviour, ISaveable, IVideoReward
     {
         public Action VideoIsComplete = delegate { };
 

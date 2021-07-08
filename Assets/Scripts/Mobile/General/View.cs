@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Est.Mobile
 {
-    public class View : MonoBehaviour, IRewardUITime
+    public class View : MonoBehaviour, IRewardUITime, IMenuReward
     {
         [SerializeField] Button buttonRewardCar;
 

@@ -8,9 +8,10 @@ namespace Est.Mobile
     {
         public static MediatorMobile Instance { get; private set; }
 
-        private AdsManager mobileManager = null;
-        private View view;
-        private ControlRewardCoin controlRewardCoin;
+        private AdsManager AdsManager = null;
+        private IVideoReward adsInstantiate;
+        private IMenuReward view;
+        private IControlRewardCoin controlRewardCoin;
 
         private void Awake()
         {
@@ -25,17 +26,23 @@ namespace Est.Mobile
             }
 
 
-            mobileManager = GetComponent<AdsManager>();
+            AdsManager = GetComponent<AdsManager>();
+            adsInstantiate = AdsManager;
             view = GetComponent<View>();
             controlRewardCoin = GetComponent<ControlRewardCoin>();
 
         }
 
+        public void ChangeVideoRewardInterface(IVideoReward reward) => adsInstantiate = reward;
+
+        public void ChangeControlRewardCoinInterface(IControlRewardCoin rewardCoin) => controlRewardCoin = rewardCoin;
+
+        public void ChangeIMenuRewardInterface(IMenuReward menuReward) => view = menuReward;
+
         public void VideoRewardCar()
         {
-            mobileManager.VideoIsComplete += OnRewardCar;
-            mobileManager.InstantiateVideoReward(); //this is when touch in diff objects
-
+            AdsManager.VideoIsComplete += OnRewardCar;
+            adsInstantiate.InstantiateVideoReward(); //this is when touch in diff objects
         }
 
         public void ActiveMenuRewardCarPlayerSessionView() => view.ActiveMenuRewardCar(controlRewardCoin.GetNewRewardCar());
@@ -46,7 +53,7 @@ namespace Est.Mobile
         {
             print("OnRewardCar");
             controlRewardCoin.NewRewardCar();
-            mobileManager.VideoIsComplete -= OnRewardCar;
+            AdsManager.VideoIsComplete -= OnRewardCar;
         }
     }
 }

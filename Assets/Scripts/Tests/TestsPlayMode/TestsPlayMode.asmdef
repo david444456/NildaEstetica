@@ -1,13 +1,11 @@
 {
     "name": "TestsPlayMode",
+    "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "General",
-        "Utility",
-        "Unity.InputSystem",
-        "Unity.InputSystem.TestFramework",
-        "Unity.InputSystem.IntegrationTests"
+        "Utility"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
