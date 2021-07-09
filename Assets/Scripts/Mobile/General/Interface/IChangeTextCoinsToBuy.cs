@@ -6,7 +6,7 @@ namespace Est.Mobile
 {
     public interface IChangeTextCoinsToBuy 
     {
-        void UpdateTextButtonTotalCostInStartStore(float[] intCostTotal);
+        void UpdateTextButtonTotalCostInStartStore(int[] intCostTotal);
         void ChangeTextCoinsToBuy(int index, string newText);
 
         void PlayAudioSourceBuy();

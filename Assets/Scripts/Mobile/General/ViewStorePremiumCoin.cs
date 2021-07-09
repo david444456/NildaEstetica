@@ -11,9 +11,10 @@ namespace Est.Mobile {
         [SerializeField] Text[] textTotalCoinsGetBuy;
         [SerializeField] AudioSource audioSource;
 
-        public void UpdateTextButtonTotalCostInStartStore(float [] intCostTotal) {
+        public void UpdateTextButtonTotalCostInStartStore(int [] intCostTotal) {
             for (int i = 0; i < intCostTotal.Length; i++)
             {
+                print(intCostTotal[i].ToString());
                 textButtonTotalCost[i].text = intCostTotal[i].ToString();
             }
         }

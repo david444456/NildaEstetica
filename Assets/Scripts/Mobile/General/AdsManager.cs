@@ -22,7 +22,7 @@ namespace Est.Mobile
         private PlayerSessionView playerSession;
         private RewardTimeGeneration rewardTimeGeneration;
         private ADSRewardedVideo aDSRewardedVideo;
-        [SerializeField] private bool adsRemove = false;
+        private bool adsRemove = false;
 
         void Start()
         {
@@ -47,7 +47,6 @@ namespace Est.Mobile
         public void SetAdsBoolTrue() => adsRemove = true;
 
         public void InstantiateVideoReward() {
-
             aDSRewardedVideo.ShowVideo();
         }
 

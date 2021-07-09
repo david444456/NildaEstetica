@@ -34,7 +34,7 @@ namespace Est.Mobile
 
             totalCoinToBuy = new float[4];
 
-            viewStore.UpdateTextButtonTotalCostInStartStore(totalCoinToBuy);
+            viewStore.UpdateTextButtonTotalCostInStartStore(costCoinPremium);
             /*for (int i = 0; i < totalCoinToBuy.Length; i++) {
                 textButtonTotalCost[i].text = costCoinPremium[i].ToString();
             }*/
@@ -57,17 +57,15 @@ namespace Est.Mobile
         public void ActiveStore()
         {
             //buttons
-            buttonsBuyStore[0].onClick.AddListener(BuyFirstPositionOnStore);
-            buttonsBuyStore[1].onClick.AddListener(BuySecondPositionOnStore);
-            buttonsBuyStore[2].onClick.AddListener(BuyThirdPositionOnStore);
-            buttonsBuyStore[3].onClick.AddListener(BuyForthPositionOnStore);
+            buttonsBuyStore[0].onClick.AddListener(() => TryToBuyPremiumCoin(0));
+            buttonsBuyStore[1].onClick.AddListener(() => TryToBuyPremiumCoin(1));
+            buttonsBuyStore[2].onClick.AddListener(() => TryToBuyPremiumCoin(2));
+            buttonsBuyStore[3].onClick.AddListener(() => TryToBuyPremiumCoin(3));
 
-            //
             ResetTheValueForBuy();
         }
 
         public void TryToBuyPremiumCoin(int index) {
-
             if (costCoinPremium[index] <= coinPremium.CoinsPremium) {
                 ResetTheValueForBuy();
                 setControlPremium.SetAugmentPremiumCoin(-costCoinPremium[index]);
