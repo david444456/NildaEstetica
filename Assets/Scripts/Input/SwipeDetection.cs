@@ -8,6 +8,7 @@ namespace Est.Control
     public class SwipeDetection : MonoBehaviour
     {
         [SerializeField] Text textTestVelocity;
+        [SerializeField] Text textTestVelocity2;
         [Header("Limits")]
         [SerializeField] private float maxPositionVertical = 5;
         [SerializeField] private float maxPositionHorizontal = 5;
@@ -19,18 +20,19 @@ namespace Est.Control
         [SerializeField] private float maximumTime = 1f;
 
         [Range(0f,1f)]
-        [SerializeField] private float directionThreshold = 0.9f; 
+        [SerializeField] private float directionThreshold = 0.9f;
+        [SerializeField] private float speedMultiplicatorMovement = 2.2f;
 
         private InputManager inputManager;
         private Camera cameraMain;
 
-        private Vector2 startPosition;
+        private Vector3 startPosition;
         private float startTime;
-        private Vector2 endPosition;
+        private Vector3 endPosition;
         private float endTime;
 
-        private int horizontal = 0;
-        private int vertical = 0;
+        private float horizontal = 0;
+        private float vertical = 0;
 
         Vector2 directionMoveCamera;
 
@@ -45,9 +47,20 @@ namespace Est.Control
 #if UNITY_STANDOLE || UNITY_WEBGL || UNITY_EDITOR
             PcInputDetection();
 #else //mobile
+            horizontal = 0;
+            vertical = 0;
             MobileInputDetection();
 #endif
             if (horizontal != 0 || vertical != 0) MoveCameraSwide(horizontal, vertical);
+
+            if (endPosition != startPosition) {
+                if (LimitMovementCamera(horizontal, cameraMain.transform.position.x, -maxPositionHorizontal, maxPositionHorizontal)) return;
+                else if (LimitMovementCamera(vertical, cameraMain.transform.position.z, -maxPositionVertical, maxPositionVertical)) return;
+                cameraMain.transform.position = Vector3.MoveTowards(
+                    cameraMain.transform.position,
+                    endPosition,
+                    speedMoveCamera * Time.deltaTime);
+            }
         }
 
         private void PcInputDetection()
@@ -55,13 +68,15 @@ namespace Est.Control
             horizontal = inputManager.HorizontalDetection();
             vertical = inputManager.VerticalDetection();
             if (horizontal != 0) vertical = 0;
+            textTestVelocity2.text = horizontal + " y: " + vertical;
         }
 
         private void MobileInputDetection() {
             inputManager.MobileSwipeDetection(ref horizontal, ref vertical);
+            textTestVelocity2.text = horizontal + " y: " + vertical;
         }
 
-        private void MoveCameraSwide(int horizontal, int vertical)
+        private void MoveCameraSwide(float horizontal, float vertical)
         {
             float dirX = horizontal;
             float dirY = vertical;
@@ -74,15 +89,12 @@ namespace Est.Control
             textTestVelocity.text = dirX + " y: " + dirY;
 
             //move
-            cameraMain.transform.position = Vector3.MoveTowards(
-                cameraMain.transform.position,
-                new Vector3(cameraMain.transform.position.x + dirX, 
+            endPosition = new Vector3(cameraMain.transform.position.x + dirX * speedMultiplicatorMovement,
                             cameraMain.transform.position.y,
-                            cameraMain.transform.position.z + dirY), 
-                speedMoveCamera * Time.deltaTime);
+                            cameraMain.transform.position.z + dirY * speedMultiplicatorMovement);
         }
 
-        private bool LimitMovementCamera(int direction, float cameraPosition_X, float min, float max) {
+        private bool LimitMovementCamera(float direction, float cameraPosition_X, float min, float max) {
             return (direction > 0) ? cameraPosition_X >= max : cameraPosition_X  <= min;
         }
 

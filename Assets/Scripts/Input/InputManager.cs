@@ -30,7 +30,7 @@ namespace Est.Control
             }
         }
 
-        public void MobileSwipeDetection(ref int horizontal, ref int vertical) {
+        public void MobileSwipeDetection(ref float horizontal, ref float vertical) {
             if (Input.touchCount > 0)
             {
                 Touch myTouch = Input.touches[0];
@@ -47,11 +47,13 @@ namespace Est.Control
                     {
                         if (Mathf.Abs(x) >= Mathf.Abs(y))
                         {
-                            horizontal = x > 0 ? -1 : 1;
+                            float valueX = Mathf.Abs(x) / 500; //Mathf.Clamp01(Mathf.Abs(x));
+                            horizontal = x > 0 ? -valueX : valueX;
                         }
                         else
                         {
-                            vertical = y > 0 ? -1 : 1;
+                            float valueY = Mathf.Abs(y) / 500;//Mathf.Clamp01(Mathf.Abs(y));
+                            vertical = y > 0 ? -valueY : valueY;
                         }
                     }
                 }
