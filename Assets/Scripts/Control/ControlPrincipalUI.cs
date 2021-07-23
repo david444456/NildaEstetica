@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ControlPrincipalUI : SingletonInInspector<ControlPrincipalUI>, IControlUI
 {
 
 
     [Header("UI")]
-    [SerializeField] Text textCoin = null;
-    [SerializeField] Text textCoinPremium = null;
-    [SerializeField] Text textGenerationCoin = null;
+    [SerializeField] TextMeshProUGUI textCoin = null;
+    [SerializeField] TextMeshProUGUI textCoinPremium = null;
+    [SerializeField] TextMeshProUGUI textGenerationCoin = null;
     [SerializeField] GameObject GOTextInformationSlot = null;
     [SerializeField] Text textInformationSlot = null;
     [SerializeField] Image imageBossInformationSlot = null;

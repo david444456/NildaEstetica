@@ -54,8 +54,9 @@ namespace Est.Control
             if (horizontal != 0 || vertical != 0) MoveCameraSwide(horizontal, vertical);
 
             if (endPosition != startPosition) {
-                if (LimitMovementCamera(horizontal, cameraMain.transform.position.x, -maxPositionHorizontal, maxPositionHorizontal)) return;
-                else if (LimitMovementCamera(vertical, cameraMain.transform.position.z, -maxPositionVertical, maxPositionVertical)) return;
+                if (horizontal != 0 && LimitMovementCamera(horizontal, cameraMain.transform.position.x, -maxPositionHorizontal, maxPositionHorizontal)) return;
+                else if (vertical != 0 && LimitMovementCamera(vertical, cameraMain.transform.position.z, -maxPositionVertical, maxPositionVertical)) return;
+                
                 cameraMain.transform.position = Vector3.MoveTowards(
                     cameraMain.transform.position,
                     endPosition,

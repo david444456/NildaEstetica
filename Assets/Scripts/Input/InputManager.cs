@@ -33,29 +33,30 @@ namespace Est.Control
         public void MobileSwipeDetection(ref float horizontal, ref float vertical) {
             if (Input.touchCount > 0)
             {
+
                 Touch myTouch = Input.touches[0];
                 if (myTouch.phase == TouchPhase.Began)
                 {
                     touchOrigin = myTouch.position;
                 }
-                else if (myTouch.phase == TouchPhase.Ended && touchOrigin != -Vector2.one)
+                else if ( touchOrigin != -Vector2.one) //myTouch.phase == TouchPhase.Ended &&
                 {
                     Vector2 touchEnd = myTouch.position;
                     float x = touchEnd.x - touchOrigin.x;
                     float y = touchEnd.y - touchOrigin.y;
                     if (x != 0 || y != 0)
                     {
-                        if (Mathf.Abs(x) >= Mathf.Abs(y))
-                        {
+                        //if (Mathf.Abs(x) >= Mathf.Abs(y)){
                             float valueX = Mathf.Abs(x) / 500; //Mathf.Clamp01(Mathf.Abs(x));
                             horizontal = x > 0 ? -valueX : valueX;
-                        }
-                        else
-                        {
+                        //}
+                        //else{
                             float valueY = Mathf.Abs(y) / 500;//Mathf.Clamp01(Mathf.Abs(y));
                             vertical = y > 0 ? -valueY : valueY;
-                        }
+                        //}
                     }
+                    //after move
+                    touchOrigin = myTouch.position;
                 }
             }
         }
