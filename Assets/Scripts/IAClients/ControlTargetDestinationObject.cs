@@ -11,6 +11,7 @@ namespace Est.AI
         public SetDestinationData destinationData;
         [SerializeField] Transform transformCorrectAnimation;
         [SerializeField] UnityEvent ServiceIsFalse = new UnityEvent();
+        [SerializeField] UnityEvent ServiceIsTrue = new UnityEvent();
 
         //control bool
         private bool InServiceGameObject = false;
@@ -38,7 +39,11 @@ namespace Est.AI
             get { return InServiceGameObject; }
             set
             {
-                if (!value) ServiceIsFalse.Invoke(); //event
+                //events
+                if (!value) ServiceIsFalse.Invoke(); 
+                else ServiceIsTrue.Invoke();
+
+                //ai
                 InServiceGameObject = value;
             }
         }

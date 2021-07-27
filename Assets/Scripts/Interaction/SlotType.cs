@@ -19,5 +19,6 @@ namespace Est.Interact
         GYM,
         Esthetic,
         Nutritionist,
+        Sunbed,
     }
 }
