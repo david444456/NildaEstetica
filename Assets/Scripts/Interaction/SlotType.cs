@@ -20,5 +20,6 @@ namespace Est.Interact
         Esthetic,
         Nutritionist,
         Sunbed,
+        Jacuzzi,
     }
 }

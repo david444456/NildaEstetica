@@ -10,31 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e48f6ffa04b09440a9600e71880706c, type: 3}
-  m_Name: Slot 4
+  m_Name: Slot 6
   m_EditorClassIdentifier: 
   StatLevel:
     costsToUnlockedSlot: 24
     levelUnitUnlockedSlot: 1
     costsToUpgradeLevel: 1
     levelUnitUpgradeLevel: 1
-    countToUpgradeLevelExp: 0300000005000000040000000500000008000000
+    countToUpgradeLevelExp: 030000000a000000
     multiplicatorLevels:
-    - 1.5
-    - 2
-    - 2
     - 3
-    - 2
+    - 5
     timeToUpgradeLevel:
     - 10
     - 30
-    - 30
-    - 30
-    - 30
     gameObjectsByLevel:
-    - {fileID: -2432090755550338912, guid: 706573356a51a874ca7651a8967d09de, type: 3}
-    - {fileID: -2432090755550338912, guid: 02816d62f78be7940969d46d6217002b, type: 3}
-    - {fileID: -2432090755550338912, guid: dad47e0ce7024ea499cafbdeebbd33c2, type: 3}
-    - {fileID: -2432090755550338912, guid: 2d0e4bf26186c2346acbec44b67699f2, type: 3}
-    - {fileID: -2432090755550338912, guid: 2d0e4bf26186c2346acbec44b67699f2, type: 3}
-  textInformation: Massages
+    - {fileID: -2432090755550338912, guid: 02059a33d0c20eb44b3fece2fabbd59c, type: 3}
+    - {fileID: -2432090755550338912, guid: 1f987b96ef1002e4e8e63c1f03fee38e, type: 3}
+    - {fileID: -2432090755550338912, guid: 36e3759d87fce3e44bf89f77e1ce4c40, type: 3}
+    - {fileID: -2432090755550338912, guid: ae67c9c820feb3342b381dacb7866ead, type: 3}
+  textInformation: Jacuzzi
   spriteBossSlot: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
