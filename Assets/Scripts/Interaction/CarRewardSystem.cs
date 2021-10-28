@@ -13,8 +13,8 @@ namespace Est.Interact
         [SerializeField] Text textUIImageInfoAboutCoin;
 
         [Header("Audio")]
-        [SerializeField] AudioSource audio;
-        [SerializeField] AudioClip[] clips;
+        [SerializeField] AudioSource audioSourceReward;
+        [SerializeField] AudioClip[] clipsReward;
 
         private bool IsUsed = false;
 
@@ -26,13 +26,13 @@ namespace Est.Interact
             IsUsed = true;
             MediatorMobile.Instance.ActiveMenuRewardCarPlayerSessionView();
 
-            audio.clip = clips[Random.Range(0, clips.Length)];
-            audio.Play();
+            audioSourceReward.clip = clipsReward[Random.Range(0, clipsReward.Length)];
+            audioSourceReward.Play();
         }
 
         private void OnEnable()
         {
-            audio = GetComponent<AudioSource>();
+            audioSourceReward = GetComponent<AudioSource>();
         }
 
         private void OnDisable()

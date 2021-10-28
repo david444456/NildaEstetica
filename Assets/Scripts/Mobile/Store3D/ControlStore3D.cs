@@ -92,7 +92,7 @@ public class ControlStore3D : MonoBehaviour
         }
         else {
 
-            textSelectOrPurchasedNewItem.text = "<size=24><b>" + "Purchased X2" + "</b></size>"+ "\n " + "BUY FOR" +
+            textSelectOrPurchasedNewItem.text = "<size=24><b>" + "Purchased X2" + "</b></size>"+ "\n " + "BUY FOR " +
                 ctrolObjectStore.GetObjectActualPosition(m_indexActualPositionInStore).dataItem.costItem  + " " +
                 buyItemInfo3D.GetStringUnitsWithIndex(ctrolObjectStore.GetObjectActualPosition(m_indexActualPositionInStore).dataItem.indexCostItem); //coins
         }

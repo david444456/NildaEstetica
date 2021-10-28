@@ -10,7 +10,7 @@ namespace Tests.Control
     {
         ControlCoins controlCoins;
         ControlPrincipalUI controlPrincipalUI;
-        GameObject camera;
+        GameObject MainCameraTest;
 
         GameObject coreGO;
 
@@ -18,7 +18,7 @@ namespace Tests.Control
         public void SetUp() {
             //camera by not crash
             var loadCamera = Resources.Load("Prefab/Core/Main Camera") as GameObject;
-            camera = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
+            MainCameraTest = GameObject.Instantiate(loadCamera, new Vector3(1, 0, 1), Quaternion.identity);
 
 
             //prepare
@@ -34,7 +34,7 @@ namespace Tests.Control
         public void TearDown()
         {
             GameObject.Destroy(coreGO);
-            Destroy(camera);
+            Destroy(MainCameraTest);
         }
 
         [UnityTest]
