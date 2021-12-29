@@ -49,9 +49,9 @@ namespace Tests.Control
             controlCoins.SetCoinGenerationPerSecond(1);
 
             yield return new WaitForEndOfFrame(); //start
-
-            //prepare
             controlCoins.ChangePrincipalUI(controlUI);
+
+            //execute
             controlCoins.CoinsSinceLastSessionInMinutes(60000); //1
 
             yield return new WaitForEndOfFrame();
